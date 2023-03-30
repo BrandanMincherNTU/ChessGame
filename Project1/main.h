@@ -7,12 +7,27 @@
 #include <iostream>
 #include <string>
 
-int board[8][8] =
+
+/*double board[8][8] =
 {
-	-4,-2,-3,-5,-6,-3,-2,-4,
-	0,-1,-1,-1,-1,-1,-1,-1,
+/	-4,-2,-3,-5,-6,-3.1,-2.1,-4.1,
+	-1,-1.1,-1.2,-1.3,-1.4,-1.5,-1.6,-1.7,
 	0 ,0 ,0 ,0 ,0, 0, 0, 0,
-	-1 ,0 ,0 ,0 ,0, 0, 0, 0,
+	0 ,0 ,0 ,0 ,0, 0, 0, 0,
+	0 ,0 ,0 ,0 ,0, 0, 0, 0,
+	0 ,0 ,0 ,0 ,0, 0, 0, 0,
+	1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7,
+	4, 2, 3, 5, 6, 3.1, 2.1, 4.1
+
+}; */
+
+
+double board[8][8] =
+{
+	-4,-2,-3,-5,-6,-3,-2,-4.1,
+	0,-1,-1,-1,-1,-1,-1,0,
+	0 ,0 ,0 ,0 ,0, 0, 0, 0,
+	-1 ,0 ,0 ,0 ,0, 0, 0, -1,
 	0 ,0 ,0 ,-1 ,0, 0, 0, 0,
 	0 ,0 ,0 ,0 ,0, 0, 0, 0,
 	1, 1, 1, 1, 1, 1, 1, 1,
@@ -25,7 +40,7 @@ int board[8][8] =
 struct ChessPiece
 {
 	int x, y;
-	int pieceID;
+	double pieceID;
 	int color;
 	int draw;
 
@@ -58,15 +73,25 @@ public:
 		blackrook1.pieceID = -4;
 		blackrook1.draw = 1;
 
-
+		ChessPiece blackrook2;
+		blackrook2.x = 0;
+		blackrook2.y = 0;
+		blackrook2.pieceID = -4.1;
+		blackrook2.draw = 1;
 
 		sf::Texture blackrooktex;
 		blackrooktex.loadFromFile("images/blackrook.png");
+		
 		sf::Sprite blackrooksprite1(blackrooktex);
 		blackrooksprite1.setScale(1.5, 1.5);
 		blackrooksprite1.setPosition(0.f, 0.f);
 
+		sf::Texture blackrooktex2;
+		blackrooktex2.loadFromFile("images/blackrook.png");
 
+		sf::Sprite blackrooksprite2(blackrooktex2);
+		blackrooksprite2.setScale(1.5, 1.5);
+		blackrooksprite2.setPosition(700.f, 0.f);
 
 
 
@@ -339,7 +364,7 @@ public:
 
 		bool a1square = 0;
 
-		int moving = 0;
+		double moving = 0;
 		int valid = 0;
 
 		int oldx, oldy;
@@ -372,6 +397,7 @@ public:
 					//std::cout << y << std::endl;
 					std::cout << "ChessPiece: " << board[y][x] << "   ";
 					std::cout << "x: " << x << "   " << "y: " << y << std::endl;
+					std::cout << board[y][x] << std::endl;
 					if (board[y][x] != 0)
 					{
 
@@ -393,6 +419,16 @@ public:
 						moving = blackrook1.pieceID;
 
 					}
+					if (board[y][x] == blackrook2.pieceID)
+					{
+						oldx = x;
+						oldy = y;
+						
+						
+						std::cout << "Moving Rook2";
+						moving = blackrook2.pieceID;
+
+					}
 
 
 				}
@@ -402,6 +438,191 @@ public:
 					{
 						std::cout << "cancelled";
 						moving = 0;
+
+					}
+
+				}
+
+				if (moving == blackrook2.pieceID && event.type == sf::Event::MouseButtonPressed)
+				{
+					if (event.key.code == sf::Mouse::Right)
+					{
+						sf::Vector2i mpos = sf::Mouse::getPosition(window);
+						int x = mpos.x / size;
+						int y = mpos.y / size;
+						int dx = x - oldx;
+						int dy = y - oldy;
+						int checker = 0;
+
+						for (int i = 0; i < 8; i++)
+						{
+
+
+
+
+							if ((x == oldx + i && y == oldy || x == oldx - i && y == oldy) || (y == oldy + i && x == oldx || y == oldy - i && x == oldx))
+							{
+
+								if (oldy < y && x == oldx) // Rook moving down
+								{
+
+									for (int i = oldy + 1; i <= y; i++)
+									{
+										if (board[y][x] >= 0 && board[i][x] >= 0 || board[i][x] == -4.1)
+										{
+											checker++;
+
+										}
+
+
+									}
+
+									if (board[y][x] >= 0 && checker == y - oldy)
+
+
+									{
+										valid = 1;
+
+										blackrooksprite2.setPosition(x * size, y * size);
+
+										board[y][x] = -4.1;
+										board[oldy][oldx] = 0;
+										moving = 0;
+
+										std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+										std::cout << "chcker: " << checker << std::endl;
+										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+										checker = 0;
+
+									}
+
+
+
+
+
+
+
+
+								}
+
+								if (oldy > y && x == oldx) // Rook Moving Up
+								{
+									for (int i = oldy - 1; i >= y; i--)
+									{
+										if (board[y][x] >= 0 && board[i][x] >= 0 || board[i][x] == -4.1)
+										{
+											checker++;
+
+										}
+
+
+									}
+
+
+									if (board[y][x] >= 0 && checker == oldy - y)
+									{
+										valid = 1;
+
+
+										blackrooksprite2.setPosition(x * size, y * size);
+
+										board[y][x] = -4.1;
+										board[oldy][oldx] = 0;
+										moving = 0;
+
+										std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+
+										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+
+
+									}
+
+
+								}
+
+
+
+								if (oldx < x && y == oldy) // Rook Moving Right
+								{
+
+									for (int i = oldx + 1; i <= x; i++)
+									{
+										if (board[y][x] >= 0 && board[y][i] >= 0 || board[y][i] == -4.1)
+										{
+											checker++;
+
+										}
+									}
+
+									if (board[y][x] >= 0 && checker == x - oldx)
+									{
+										valid = 1;
+
+
+										blackrooksprite2.setPosition(x * size, y * size);
+
+										board[y][x] = -4.1;
+										board[oldy][oldx] = 0;
+										moving = 0;
+
+										std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+
+										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									}
+
+
+
+								}
+
+								if (oldx > x && y == oldy) // left
+								{
+
+									for (int i = oldx - 1; i >= x; i--)
+									{
+										if (board[y][x] >= 0 && board[y][i] >= 0 || board[y][i] == -4.1)
+										{
+											checker++;
+
+										}
+
+
+									}
+
+									if (board[y][x] >= 0 && checker == oldx - x)
+									{
+										valid = 1;
+
+
+										blackrooksprite2.setPosition(x * size, y * size);
+
+										board[y][x] = -4.1;
+										board[oldy][oldx] = 0;
+										moving = 0;
+
+										std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+
+										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									}
+
+								}
+
+								if (valid == 0)
+								{
+									std::cout << "chcker: " << checker << std::endl;
+									std::cout << "illegal Move" << std::endl;
+								}
+
+
+
+
+
+							}
+						}
+
 
 					}
 
@@ -433,9 +654,10 @@ public:
 								if (oldy  < y && x == oldx) // Rook moving down
 								{
 									
-									for (int i = oldy + 1; i <= y; i++)
+									for (int i = oldy + 1; i < y; i++)
 									{
-										if (board[y][x] >= 0 && board[i][x] >= 0 || board[i][x] == -4)
+										
+										if (board[y][x] >= 0 && board[i][x] == 0 || board[i][x] == -4)
 										{
 											checker++;
 
@@ -444,7 +666,7 @@ public:
 
 									}
 									
-									if (board[y][x] >= 0 && checker == y - oldy)
+									if (board[y][x] >= 0 && checker == (y - 1) - oldy)
 
 
 									{
@@ -677,7 +899,11 @@ public:
 
 			}
 
+			if (blackrook1.draw == 1)
+			{
+				window.draw(blackrooksprite2);
 
+			}
 
 			window.display();
 
