@@ -26,8 +26,8 @@ double board[8][8] =
 {
 	-4,-2,-3,-5,-6,-3,-2,-4.1,
 	0,-1,-1,-1,-1,-1,-1,0,
-	0 ,0 ,0 ,0 ,0, 0, 0, 0,
-	-1 ,0 ,0 ,0 ,0, 0, 0, -1,
+	0 ,0 ,0 ,0 ,1, 0, 0, 0,
+	-1 ,0 ,0 ,0 ,1, 1, 0, -1,
 	0 ,0 ,0 ,-1 ,0, 0, 0, 0,
 	0 ,0 ,0 ,0 ,0, 0, 0, 0,
 	1, 1, 1, 1, 1, 1, 1, 1,
@@ -79,8 +79,26 @@ public:
 		blackrook2.pieceID = -4.1;
 		blackrook2.draw = 1;
 
+		ChessPiece blackqueen;
+		blackqueen.x = 0;
+		blackqueen.y = 0;
+		blackqueen.pieceID = -5;
+		blackqueen.draw = 1;
+
+		ChessPiece blackking;
+		blackking.x = 0;
+		blackking.y = 0;
+		blackking.pieceID = -6;
+		blackking.draw = 1;
+
 		sf::Texture blackrooktex;
 		blackrooktex.loadFromFile("images/blackrook.png");
+
+		sf::Texture blackqueentex;
+		blackqueentex.loadFromFile("images/blackqueen.png");
+		
+		sf::Texture blackkingtex;
+		blackkingtex.loadFromFile("images/blackking.png");
 		
 		sf::Sprite blackrooksprite1(blackrooktex);
 		blackrooksprite1.setScale(1.5, 1.5);
@@ -94,8 +112,13 @@ public:
 		blackrooksprite2.setPosition(700.f, 0.f);
 
 
+		sf::Sprite blackqueensprite(blackqueentex);
+		blackqueensprite.setScale(1.5, 1.5);
+		blackqueensprite.setPosition(300.f, 0.f);
 
-
+		sf::Sprite blackkingsprite(blackkingtex);
+		blackkingsprite.setScale(1.5, 1.5);
+		blackkingsprite.setPosition(400.f, 0.f);
 
 		sf::RenderWindow window(sf::VideoMode(width, height), name);
 
@@ -430,6 +453,19 @@ public:
 
 					}
 
+					if (board[y][x] == blackking.pieceID)
+					{
+						oldx = x;
+						oldy = y;
+
+
+						std::cout << "Moving Black King";
+						moving = blackking.pieceID;
+
+					}
+
+
+
 
 				}
 				if (event.type == sf::Event::MouseButtonPressed)
@@ -463,12 +499,12 @@ public:
 							if ((x == oldx + i && y == oldy || x == oldx - i && y == oldy) || (y == oldy + i && x == oldx || y == oldy - i && x == oldx))
 							{
 
-								if (oldy < y && x == oldx) // Rook moving down
+								if (oldy < y && x == oldx) // Rook2 moving down
 								{
 
-									for (int i = oldy + 1; i <= y; i++)
+									for (int i = oldy + 1; i < y; i++)
 									{
-										if (board[y][x] >= 0 && board[i][x] >= 0 || board[i][x] == -4.1)
+										if (board[y][x] >= 0 && board[i][x] == 0 || board[i][x] == -4.1)
 										{
 											checker++;
 
@@ -477,7 +513,7 @@ public:
 
 									}
 
-									if (board[y][x] >= 0 && checker == y - oldy)
+									if (board[y][x] >= 0 && checker == (y - 1) - oldy)
 
 
 									{
@@ -508,9 +544,9 @@ public:
 
 								if (oldy > y && x == oldx) // Rook Moving Up
 								{
-									for (int i = oldy - 1; i >= y; i--)
+									for (int i = oldy - 1; i > y; i--)
 									{
-										if (board[y][x] >= 0 && board[i][x] >= 0 || board[i][x] == -4.1)
+										if (board[y][x] >= 0 && board[i][x] == 0 || board[i][x] == -4.1)
 										{
 											checker++;
 
@@ -520,7 +556,7 @@ public:
 									}
 
 
-									if (board[y][x] >= 0 && checker == oldy - y)
+									if (board[y][x] >= 0 && checker == (oldy - 1) - y)
 									{
 										valid = 1;
 
@@ -547,16 +583,16 @@ public:
 								if (oldx < x && y == oldy) // Rook Moving Right
 								{
 
-									for (int i = oldx + 1; i <= x; i++)
+									for (int i = oldx + 1; i < x; i++)
 									{
-										if (board[y][x] >= 0 && board[y][i] >= 0 || board[y][i] == -4.1)
+										if (board[y][x] >= 0 && board[y][i] == 0 || board[y][i] == -4.1)
 										{
 											checker++;
 
 										}
 									}
 
-									if (board[y][x] >= 0 && checker == x - oldx)
+									if (board[y][x] >= 0 && checker == (x - 1) - oldx)
 									{
 										valid = 1;
 
@@ -580,9 +616,9 @@ public:
 								if (oldx > x && y == oldy) // left
 								{
 
-									for (int i = oldx - 1; i >= x; i--)
+									for (int i = oldx - 1; i > x; i--)
 									{
-										if (board[y][x] >= 0 && board[y][i] >= 0 || board[y][i] == -4.1)
+										if (board[y][x] >= 0 && board[y][i] == 0 || board[y][i] == -4.1)
 										{
 											checker++;
 
@@ -591,7 +627,7 @@ public:
 
 									}
 
-									if (board[y][x] >= 0 && checker == oldx - x)
+									if (board[y][x] >= 0 && checker == (oldx - 1) - x)
 									{
 										valid = 1;
 
@@ -660,6 +696,7 @@ public:
 										if (board[y][x] >= 0 && board[i][x] == 0 || board[i][x] == -4)
 										{
 											checker++;
+											
 
 										}
 
@@ -697,9 +734,9 @@ public:
 
 								if (oldy > y && x == oldx) // Rook Moving Up
 								{
-									for (int i = oldy - 1; i >= y; i--)
+									for (int i = oldy - 1; i > y; i--)
 									{
-										if (board[y][x] >= 0 && board[i][x] >= 0 || board[i][x] == -4)
+										if (board[y][x] >= 0 && board[i][x] == 0 || board[i][x] == -4)
 										{
 											checker++;
 
@@ -709,7 +746,7 @@ public:
 									}
 									
 									
-									if (board[y][x] >= 0 && checker == oldy-y)
+									if (board[y][x] >= 0 && checker == (oldy - 1) - y)
 									{
 										valid = 1;
 
@@ -736,16 +773,16 @@ public:
 								if (oldx < x && y == oldy) // Rook Moving Right
 								{
 									
-									for (int i = oldx + 1; i <= x; i++)
+									for (int i = oldx + 1; i < x; i++)
 									{
-										if (board[y][x] >= 0 && board[y][i] >= 0 || board[y][i] == -4)
+										if (board[y][x] >= 0 && board[y][i] == 0 || board[y][i] == -4)
 										{
 											checker++;
 
 										}
 									}
 									
-									if (board[y][x] >= 0 && checker == x - oldx)
+									if (board[y][x] >= 0 && checker == (x - 1) - oldx)
 									{
 										valid = 1;
 
@@ -769,9 +806,9 @@ public:
 								if (oldx > x && y == oldy) // left
 								{
 
-									for (int i = oldx - 1; i >= x; i--)
+									for (int i = oldx - 1; i > x; i--)
 									{
-										if (board[y][x] >= 0 && board[y][i] >= 0 || board[y][i] == -4)
+										if (board[y][x] >= 0 && board[y][i] == 0 || board[y][i] == -4)
 										{
 											checker++;
 
@@ -780,7 +817,7 @@ public:
 
 									}
 
-									if(board[y][x] >= 0 && checker == oldx - x)
+									if(board[y][x] >= 0 && checker == (oldx - 1) - x)
 									{
 										valid = 1;
 
@@ -817,6 +854,53 @@ public:
 
 
 				}
+
+				if (moving == blackking.pieceID && event.type == sf::Event::MouseButtonPressed)
+				{
+					if (event.key.code == sf::Mouse::Right)
+					{
+
+						sf::Vector2i mpos = sf::Mouse::getPosition(window);
+						int x = mpos.x / size;
+						int y = mpos.y / size;
+						int dx = x - oldx;
+						int dy = y - oldy;
+						int checker = 0;
+
+
+						if (x == oldx + 1 && y == oldy || x == oldx - 1 && y == oldy || y == oldy + 1 && x == oldx || y == oldy - 1 && x == oldx)
+						{
+
+
+
+							
+							valid = 1;
+
+							
+							blackkingsprite.setPosition(x * size, y * size);
+							
+							board[y][x] = -6;
+							board[oldy][oldx] = 0;
+							moving = 0;
+
+							std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+							std::cout << "chcker: " << checker << std::endl;
+							std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+							std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+							checker = 0;
+
+							
+						}
+
+
+
+
+					}
+
+
+
+				}
+
 
 			}
 
@@ -902,6 +986,24 @@ public:
 			if (blackrook1.draw == 1)
 			{
 				window.draw(blackrooksprite2);
+
+			}
+
+			if (blackrook2.draw == 1)
+			{
+				window.draw(blackrooksprite2);
+
+			}
+
+			if (blackqueen.draw == 1)
+			{
+				window.draw(blackqueensprite);
+
+			}
+
+			if (blackking.draw == 1)
+			{
+				window.draw(blackkingsprite);
 
 			}
 
