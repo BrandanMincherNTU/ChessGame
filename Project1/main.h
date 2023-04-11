@@ -868,26 +868,34 @@ public:
 						int checker = 0;
 
 
-						if (x == oldx + 1 && y == oldy || x == oldx - 1 && y == oldy || y == oldy + 1 && x == oldx || y == oldy - 1 && x == oldx)
+						if (oldx <= x + 1 && oldy <= y + 1 || oldx <= x - 1 && oldy <= y - 1 || oldx <= x + 1 && oldy <= y - 1 || oldx <= x - 1 && oldy <= y + 1)
 						{
 
 
+							if (board[y][x] >= -10 && (x == oldx + 1 && y == oldy || x == oldx - 1 && y == oldy || y == oldy + 1 && x == oldx || y == oldy - 1 && x == oldx || x == oldx + 1 && y == oldy + 1 || x == oldx - 1 && y == oldy + 1 || x == oldx - 1 && y == oldy - 1 || x == oldx + 1 && y == oldy - 1))
 
-							
-							valid = 1;
+							{
+								valid = 1;
 
-							
-							blackkingsprite.setPosition(x * size, y * size);
-							
-							board[y][x] = -6;
-							board[oldy][oldx] = 0;
-							moving = 0;
 
-							std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
-							std::cout << "chcker: " << checker << std::endl;
-							std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
-							std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
-							checker = 0;
+								blackkingsprite.setPosition(x* size, y* size);
+
+								board[y][x] = -6;
+								board[oldy][oldx] = 0;
+								moving = 0;
+
+								std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+	
+
+							}
+
+							if (valid == 0)
+							{
+								
+								std::cout << "illegal Move" << std::endl;
+							}
 
 							
 						}
