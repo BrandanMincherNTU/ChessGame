@@ -24,8 +24,8 @@
 
 double board[8][8] =
 {
-	-4,-2,-3,-5,-6,-3,-2,-4.1,
-	0,-1,-1,0,-1,-1,-1,0,
+	-4,-2,-3,-5,-6,-3.1,-2,-4.1,
+	0,-1,-1,0,0,-1,-1,0,
 	0 ,0 ,0 ,0 ,1, 0, 0, 0,
 	-1 ,0 ,0 ,0 ,1, 1, 0, -1,
 	0 ,0 ,0 ,-1 ,0, 0, 0, 0,
@@ -96,6 +96,12 @@ public:
 		blackbishop1.pieceID = -3;
 		blackbishop1.draw = 1;
 
+		ChessPiece blackbishop2;
+		blackbishop2.x = 0;
+		blackbishop2.y = 0;
+		blackbishop2.pieceID = -3.1;
+		blackbishop2.draw = 1;
+
 		sf::Texture blackrooktex;
 		blackrooktex.loadFromFile("images/blackrook.png");
 
@@ -110,6 +116,9 @@ public:
 
 		sf::Texture blackbishoptex1;
 		blackbishoptex1.loadFromFile("images/blackbishop.png");
+
+		sf::Texture blackbishoptex2;
+		blackbishoptex2.loadFromFile("images/blackbishop.png");
 		
 		sf::Sprite blackrooksprite1(blackrooktex);
 		blackrooksprite1.setScale(1.5, 1.5);
@@ -130,6 +139,10 @@ public:
 		sf::Sprite blackbishopsprite1(blackbishoptex1);
 		blackbishopsprite1.setScale(1.5, 1.5);
 		blackbishopsprite1.setPosition(200.f, 0.f);
+
+		sf::Sprite blackbishopsprite2(blackbishoptex2);
+		blackbishopsprite2.setScale(1.5, 1.5);
+		blackbishopsprite2.setPosition(500.f, 0.f);
 
 		sf::RenderWindow window(sf::VideoMode(width, height), name);
 
@@ -486,6 +499,16 @@ public:
 
 					}
 
+					if (board[y][x] == blackbishop2.pieceID)
+					{
+						oldx = x;
+						oldy = y;
+
+
+						std::cout << "Moving Black Bishop";
+						moving = blackbishop2.pieceID;
+
+					}
 
 
 				}
@@ -1123,6 +1146,206 @@ public:
 					}
 
 				}
+				if (moving == blackbishop2.pieceID && event.type == sf::Event::MouseButtonPressed)
+				{
+					if (event.key.code == sf::Mouse::Right)
+					{
+
+						sf::Vector2i mpos = sf::Mouse::getPosition(window);
+						int x = mpos.x / size;
+						int y = mpos.y / size;
+						int dx = x - oldx;
+						int dy = y - oldy;
+						int checker = 0;
+
+
+						for (int i = 0; i < 8; i++)
+						{
+							if ((x == oldx + i && y == oldy + i) || (x == oldx - i && y == oldy - i) || (x == oldx + i && y == oldy - i) || (x == oldx - i && y == oldy + i))
+							{
+
+								if (x > oldx && y > oldy) // moving down right
+								{
+
+									for (int i = oldx + 1, j = oldy + 1; i < x && j < y; i++, j++)
+									{
+										if (board[y][x] >= 0 && board[j][i] == 0 || board[i][j] == -3.1)
+										{
+											checker++;
+
+										}
+
+
+									}
+
+									if (board[y][x] >= 0 && checker == (y - 1) - oldy && checker == (x - 1) - oldx)
+
+
+									{
+
+										valid = 1;
+
+										blackbishopsprite2.setPosition(x * size, y * size);
+
+										board[y][x] = -3.1;
+										board[oldy][oldx] = 0;
+										moving = 0;
+
+										std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+										std::cout << "chcker: " << checker << std::endl;
+										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+										checker = 0;
+
+									}
+
+
+								}
+
+								if (x < oldx && y > oldy) // moving down left
+								{
+
+									for (int i = oldx - 1, j = oldy + 1; i > x && j < y; i--, j++)
+									{
+										if (board[y][x] >= 0 && board[j][i] == 0 || board[i][j] == -3.1)
+										{
+											checker++;
+
+										}
+
+
+									}
+
+									if (board[y][x] >= 0 && checker == (y - 1) - oldy && checker == (oldx - 1) - x)
+
+
+									{
+
+										valid = 1;
+
+										blackbishopsprite2.setPosition(x * size, y * size);
+
+										board[y][x] = -3.1;
+										board[oldy][oldx] = 0;
+										moving = 0;
+
+										std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+										std::cout << "chcker: " << checker << std::endl;
+										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+										checker = 0;
+
+									}
+								}
+
+								if (x < oldx&& y < oldy) // moving up left
+								{
+
+									for (int i = oldx - 1, j = oldy - 1; i > x && j > y; i--, j--)
+									{
+										if (board[y][x] >= 0 && board[j][i] == 0 || board[i][j] == -3.1)
+										{
+											checker++;
+
+										}
+
+
+									}
+
+									if (board[y][x] >= 0 && checker == (oldx - 1) - x && checker == (oldy - 1) - y)
+
+
+									{
+
+										valid = 1;
+
+										blackbishopsprite2.setPosition(x * size, y * size);
+
+										board[y][x] = -3.1;
+										board[oldy][oldx] = 0;
+										moving = 0;
+
+										std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+										std::cout << "chcker: " << checker << std::endl;
+										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+										checker = 0;
+
+									}
+								}
+
+								if (x > oldx && y < oldy) // moving up right
+								{
+
+									for (int i = oldx + 1, j = oldy - 1; i < x && j > y; i++, j--)
+									{
+										if (board[y][x] >= 0 && board[j][i] == 0 || board[i][j] == -3.1)
+										{
+											checker++;
+
+										}
+
+
+									}
+
+									if (board[y][x] >= 0 && checker == (x - 1) - oldx && checker == (oldy - 1) - y)
+
+
+									{
+
+										valid = 1;
+
+										blackbishopsprite2.setPosition(x * size, y * size);
+
+										board[y][x] = -3;
+										board[oldy][oldx] = 0;
+										moving = 0;
+
+										std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+										std::cout << "chcker: " << checker << std::endl;
+										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+										checker = 0;
+
+									}
+								}
+
+
+								if (valid == 0)
+								{
+									std::cout << "chcker: " << checker << std::endl;
+									std::cout << "illegal Move" << std::endl;
+								}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+							}
+
+
+						}
+
+
+
+					}
+
+				}
+				
+
+
+
 
 			}
 
@@ -1235,7 +1458,11 @@ public:
 
 			}
 
+			if (blackbishop2.draw == 1)
+			{
+				window.draw(blackbishopsprite2);
 
+			}
 			window.display();
 
 
