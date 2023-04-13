@@ -24,7 +24,7 @@
 
 double board[8][8] =
 {
-	-4,-2,-3,-5,-6,-3.1,-2,-4.1,
+	-4,-2,-3,-5,-6,-3.1,-2.1,-4.1,
 	0,-1,-1,0,0,-1,-1,0,
 	0 ,0 ,0 ,0 ,1, 0, 0, 0,
 	-1 ,0 ,0 ,0 ,1, 1, 0, -1,
@@ -102,11 +102,20 @@ public:
 		blackbishop2.pieceID = -3.1;
 		blackbishop2.draw = 1;
 
+		ChessPiece blackknight1;
+		blackknight1.x = 0;
+		blackknight1.y = 0;
+		blackknight1.pieceID = -2;
+		blackknight1.draw = 1;
+
+		ChessPiece blackknight2;
+		blackknight2.x = 0;
+		blackknight2.y = 0;
+		blackknight2.pieceID = -2.1;
+		blackknight2.draw = 1;
+
 		sf::Texture blackrooktex;
 		blackrooktex.loadFromFile("images/blackrook.png");
-
-		sf::Texture blackrooktex2;
-		blackrooktex2.loadFromFile("images/blackrook.png");
 
 		sf::Texture blackqueentex;
 		blackqueentex.loadFromFile("images/blackqueen.png");
@@ -114,17 +123,17 @@ public:
 		sf::Texture blackkingtex;
 		blackkingtex.loadFromFile("images/blackking.png");
 
-		sf::Texture blackbishoptex1;
-		blackbishoptex1.loadFromFile("images/blackbishop.png");
+		sf::Texture blackbishoptex;
+		blackbishoptex.loadFromFile("images/blackbishop.png");
 
-		sf::Texture blackbishoptex2;
-		blackbishoptex2.loadFromFile("images/blackbishop.png");
+		sf::Texture blackknighttex;
+		blackknighttex.loadFromFile("images/blackknight.png");
 		
 		sf::Sprite blackrooksprite1(blackrooktex);
 		blackrooksprite1.setScale(1.5, 1.5);
 		blackrooksprite1.setPosition(0.f, 0.f);
 
-		sf::Sprite blackrooksprite2(blackrooktex2);
+		sf::Sprite blackrooksprite2(blackrooktex);
 		blackrooksprite2.setScale(1.5, 1.5);
 		blackrooksprite2.setPosition(700.f, 0.f);
 
@@ -136,13 +145,22 @@ public:
 		blackkingsprite.setScale(1.5, 1.5);
 		blackkingsprite.setPosition(400.f, 0.f);
 
-		sf::Sprite blackbishopsprite1(blackbishoptex1);
+		sf::Sprite blackbishopsprite1(blackbishoptex);
 		blackbishopsprite1.setScale(1.5, 1.5);
 		blackbishopsprite1.setPosition(200.f, 0.f);
 
-		sf::Sprite blackbishopsprite2(blackbishoptex2);
+		sf::Sprite blackbishopsprite2(blackbishoptex);
 		blackbishopsprite2.setScale(1.5, 1.5);
 		blackbishopsprite2.setPosition(500.f, 0.f);
+
+		sf::Sprite blackknightsprite1(blackknighttex);
+		blackknightsprite1.setScale(1.5, 1.5);
+		blackknightsprite1.setPosition(100.f, 0.f);
+
+		sf::Sprite blackknightsprite2(blackknighttex);
+		blackknightsprite2.setScale(1.5, 1.5);
+		blackknightsprite2.setPosition(600.f, 0.f);
+
 
 		sf::RenderWindow window(sf::VideoMode(width, height), name);
 
@@ -510,6 +528,29 @@ public:
 
 					}
 
+					if (board[y][x] == blackknight1.pieceID)
+					{
+						oldx = x;
+						oldy = y;
+
+
+						std::cout << "Moving Black Knight";
+						moving = blackknight1.pieceID;
+
+					}
+
+
+
+					if (board[y][x] == blackknight2.pieceID)
+					{
+						oldx = x;
+						oldy = y;
+
+
+						std::cout << "Moving Black Knight";
+						moving = blackknight2.pieceID;
+
+					}
 
 				}
 				if (event.type == sf::Event::MouseButtonPressed)
@@ -1342,8 +1383,112 @@ public:
 					}
 
 				}
-				
+				if (moving == blackknight1.pieceID && event.type == sf::Event::MouseButtonPressed)
+				{
+					if (event.key.code == sf::Mouse::Right)
+					{
 
+						sf::Vector2i mpos = sf::Mouse::getPosition(window);
+						int x = mpos.x / size;
+						int y = mpos.y / size;
+						int dx = x - oldx;
+						int dy = y - oldy;
+						int checker = 0;
+
+
+						if (x == oldx + 1 && y == oldy + 2 || x == oldx + 2 && y == oldy + 1 || x == oldx - 1 && y == oldy + 2 || x == oldx - 2 && y == oldy + 1 || x == oldx + 1 && y == oldy - 2 || x == oldx + 2 && y == oldy - 1 || x == oldx - 1 && y == oldy - 2 || x == oldx - 2 && y == oldy - 1)
+						{
+
+
+							if (board[y][x] >= 0)
+
+							{
+								valid = 1;
+
+
+								blackknightsprite1.setPosition(x * size, y * size);
+
+								board[y][x] = -2;
+								board[oldy][oldx] = 0;
+								moving = 0;
+
+								std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+
+
+							}
+
+							if (valid == 0)
+							{
+
+								std::cout << "illegal Move" << std::endl;
+							}
+
+
+						}
+
+
+
+
+					}
+
+
+
+				}
+				if (moving == blackknight2.pieceID && event.type == sf::Event::MouseButtonPressed)
+				{
+					if (event.key.code == sf::Mouse::Right)
+					{
+
+						sf::Vector2i mpos = sf::Mouse::getPosition(window);
+						int x = mpos.x / size;
+						int y = mpos.y / size;
+						int dx = x - oldx;
+						int dy = y - oldy;
+						int checker = 0;
+
+
+						if (x == oldx + 1 && y == oldy + 2 || x == oldx + 2 && y == oldy + 1 || x == oldx - 1 && y == oldy + 2 || x == oldx - 2 && y == oldy + 1 || x == oldx + 1 && y == oldy - 2 || x == oldx + 2 && y == oldy - 1 || x == oldx - 1 && y == oldy - 2 || x == oldx - 2 && y == oldy - 1)
+						{
+
+
+							if (board[y][x] >= 0)
+
+							{
+								valid = 1;
+
+
+								blackknightsprite2.setPosition(x * size, y * size);
+
+								board[y][x] = -2.1;
+								board[oldy][oldx] = 0;
+								moving = 0;
+
+								std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+
+
+							}
+
+							if (valid == 0)
+							{
+
+								std::cout << "illegal Move" << std::endl;
+							}
+
+
+						}
+
+
+
+
+					}
+
+
+
+				}
 
 
 
@@ -1463,6 +1608,22 @@ public:
 				window.draw(blackbishopsprite2);
 
 			}
+
+			if (blackknight1.draw == 1)
+			{
+				window.draw(blackknightsprite1);
+
+			}
+
+			if (blackknight2.draw == 1)
+			{
+				window.draw(blackknightsprite2);
+
+			}
+
+
+
+
 			window.display();
 
 
