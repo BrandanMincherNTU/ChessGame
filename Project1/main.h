@@ -25,9 +25,9 @@
 double board[8][8] =
 {
 	-4,-2,-3,-5,-6,-3.1,-2.1,-4.1,
-	0,-1,-1,0,0,-1,-1,0,
+	-1,-1,-1,0,0,-1,-1,0,
 	0 ,0 ,0 ,0 ,1, 0, 0, 0,
-	-1 ,0 ,0 ,0 ,1, 1, 0, -1,
+	0 ,1 ,0 ,0 ,1, 1, 0, -1,
 	0 ,0 ,0 ,-1 ,0, 0, 0, 0,
 	0 ,0 ,0 ,0 ,0, 0, 0, 0,
 	1, 1, 1, 1, 1, 1, 1, 1,
@@ -43,7 +43,7 @@ struct ChessPiece
 	double pieceID;
 	int color;
 	int draw;
-
+	int moved;
 };
 
 
@@ -114,6 +114,14 @@ public:
 		blackknight2.pieceID = -2.1;
 		blackknight2.draw = 1;
 
+		ChessPiece blackpawn1;
+		blackpawn1.x = 0;
+		blackpawn1.y = 0;
+		blackpawn1.pieceID = -1;
+		blackpawn1.draw = 1;
+		blackpawn1.moved = 0;
+
+
 		sf::Texture blackrooktex;
 		blackrooktex.loadFromFile("images/blackrook.png");
 
@@ -128,6 +136,9 @@ public:
 
 		sf::Texture blackknighttex;
 		blackknighttex.loadFromFile("images/blackknight.png");
+		
+		sf::Texture blackpawntex;
+		blackpawntex.loadFromFile("images/blackpawn.png");
 		
 		sf::Sprite blackrooksprite1(blackrooktex);
 		blackrooksprite1.setScale(1.5, 1.5);
@@ -160,6 +171,11 @@ public:
 		sf::Sprite blackknightsprite2(blackknighttex);
 		blackknightsprite2.setScale(1.5, 1.5);
 		blackknightsprite2.setPosition(600.f, 0.f);
+
+		sf::Sprite blackpawnsprite1(blackpawntex);
+		blackpawnsprite1.setScale(1.5, 1.5);
+		blackpawnsprite1.setPosition(0.f, 100.f);
+
 
 
 		sf::RenderWindow window(sf::VideoMode(width, height), name);
@@ -549,6 +565,17 @@ public:
 
 						std::cout << "Moving Black Knight";
 						moving = blackknight2.pieceID;
+
+					}
+
+					if (board[y][x] == blackpawn1.pieceID)
+					{
+						oldx = x;
+						oldy = y;
+
+
+						std::cout << "Moving Black Pawn";
+						moving = blackpawn1.pieceID;
 
 					}
 
@@ -1489,7 +1516,89 @@ public:
 
 
 				}
+				if (moving == blackpawn1.pieceID && event.type == sf::Event::MouseButtonPressed)
+				{
+					if (event.key.code == sf::Mouse::Right)
+					{
 
+						sf::Vector2i mpos = sf::Mouse::getPosition(window);
+						int x = mpos.x / size;
+						int y = mpos.y / size;
+						int dx = x - oldx;
+						int dy = y - oldy;
+						int checker = 0;
+
+
+						if (blackpawn1.moved == 0)
+						{
+
+
+							if ((board[y][x] == 0 && y <= oldy + 2 && oldx == x) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1))
+
+							{
+								valid = 1;
+
+
+								blackpawnsprite1.setPosition(x * size, y * size);
+
+								board[y][x] = -1;
+								board[oldy][oldx] = 0;
+								moving = 0;
+								blackpawn1.moved++;
+								std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+
+
+							}
+						}
+
+						if (blackpawn1.moved > 0)
+						{
+
+
+							if ((board[y][x] == 0 && y == oldy + 1 && oldx == x) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1))
+
+							{
+								valid = 1;
+
+
+								blackpawnsprite1.setPosition(x * size, y * size);
+
+								board[y][x] = -1;
+								board[oldy][oldx] = 0;
+								moving = 0;
+
+								std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+
+
+							}
+						
+							
+						
+						}
+
+
+
+						if (valid == 0)
+						{
+
+							std::cout << "illegal Move" << std::endl;
+						}
+
+
+						
+
+
+
+
+					}
+
+
+
+				}
 
 
 			}
@@ -1621,6 +1730,11 @@ public:
 
 			}
 
+			if (blackpawn1.draw == 1)
+			{
+				window.draw(blackpawnsprite1);
+
+			}
 
 
 
