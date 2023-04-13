@@ -1017,12 +1017,79 @@ public:
 										checker = 0;
 
 									}
-
-
 								}
 
+								if (x < oldx && y < oldy) // moving up left
+								{
+
+									for (int i = oldx - 1, j = oldy - 1; i > x && j > y; i--, j--)
+									{
+										if (board[y][x] >= 0 && board[j][i] == 0 || board[i][j] == -3)
+										{
+											checker++;
+
+										}
 
 
+									}
+
+									if (board[y][x] >= 0 && checker == (oldx - 1) - x && checker == (oldy - 1) - y)
+
+
+									{
+
+										valid = 1;
+
+										blackbishopsprite1.setPosition(x * size, y * size);
+
+										board[y][x] = -3;
+										board[oldy][oldx] = 0;
+										moving = 0;
+
+										std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+										std::cout << "chcker: " << checker << std::endl;
+										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+										checker = 0;
+
+									}
+								}
+
+								if (x > oldx && y < oldy) // moving up right
+								{
+
+									for (int i = oldx + 1, j = oldy - 1; i < x && j > y; i++, j--)
+									{
+										if (board[y][x] >= 0 && board[j][i] == 0 || board[i][j] == -3)
+										{
+											checker++;
+
+										}
+
+
+									}
+
+									if (board[y][x] >= 0 && checker == (x - 1) - oldx && checker == (oldy - 1) - y)
+
+
+									{
+
+										valid = 1;
+
+										blackbishopsprite1.setPosition(x * size, y * size);
+
+										board[y][x] = -3;
+										board[oldy][oldx] = 0;
+										moving = 0;
+
+										std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+										std::cout << "chcker: " << checker << std::endl;
+										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+										checker = 0;
+
+									}
+								}
 
 
 								if (valid == 0)
@@ -1031,20 +1098,20 @@ public:
 									std::cout << "illegal Move" << std::endl;
 								}
 
-								
-								
-								
-								
-								
-								
-								
-								
-								
-						
 
 
 
 
+
+
+
+
+
+
+
+
+
+								
 
 							}
 
