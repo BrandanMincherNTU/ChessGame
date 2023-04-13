@@ -25,7 +25,7 @@
 double board[8][8] =
 {
 	-4,-2,-3,-5,-6,-3,-2,-4.1,
-	0,-1,-1,-1,-1,-1,-1,0,
+	0,-1,-1,0,-1,-1,-1,0,
 	0 ,0 ,0 ,0 ,1, 0, 0, 0,
 	-1 ,0 ,0 ,0 ,1, 1, 0, -1,
 	0 ,0 ,0 ,-1 ,0, 0, 0, 0,
@@ -945,27 +945,102 @@ public:
 							if ((x == oldx + i && y == oldy + i) || (x == oldx - i && y == oldy - i) || (x == oldx + i && y == oldy - i) || (x == oldx - i && y == oldy + i))
 							{
 
-
-								if (board[y][x] >= 0 )
-
-
-								
+								if (x > oldx && y > oldy) // moving down right
 								{
-									valid = 1;
 
-									blackbishopsprite1.setPosition(x * size, y * size);
+									for (int i = oldx + 1, j = oldy + 1; i < x && j < y; i++, j++)
+									{
+										if (board[y][x] >= 0 && board[j][i] == 0 || board[i][j] == -3)
+										{
+											checker++;
 
-									board[y][x] = -3;
-									board[oldy][oldx] = 0;
-									moving = 0;
+										}
 
-									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
-									std::cout << "chcker: " << checker << std::endl;
-									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
-									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
-									checker = 0;
+
+									}
+
+									if (board[y][x] >= 0 && checker == (y - 1) - oldy && checker == (x - 1) - oldx)
+
+
+									{
+
+										valid = 1;
+
+										blackbishopsprite1.setPosition(x * size, y * size);
+
+										board[y][x] = -3;
+										board[oldy][oldx] = 0;
+										moving = 0;
+
+										std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+										std::cout << "chcker: " << checker << std::endl;
+										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+										checker = 0;
+
+									}
+
 
 								}
+
+								if (x < oldx && y > oldy) // moving down left
+								{
+
+									for (int i = oldx - 1, j = oldy + 1; i > x && j < y; i--, j++)
+									{
+										if (board[y][x] >= 0 && board[j][i] == 0 || board[i][j] == -3)
+										{
+											checker++;
+
+										}
+
+
+									}
+
+									if (board[y][x] >= 0 && checker == (y - 1) - oldy && checker == (oldx - 1) - x)
+
+
+									{
+
+										valid = 1;
+
+										blackbishopsprite1.setPosition(x * size, y * size);
+
+										board[y][x] = -3;
+										board[oldy][oldx] = 0;
+										moving = 0;
+
+										std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+										std::cout << "chcker: " << checker << std::endl;
+										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+										checker = 0;
+
+									}
+
+
+								}
+
+
+
+
+
+								if (valid == 0)
+								{
+									std::cout << "chcker: " << checker << std::endl;
+									std::cout << "illegal Move" << std::endl;
+								}
+
+								
+								
+								
+								
+								
+								
+								
+								
+								
+						
 
 
 
