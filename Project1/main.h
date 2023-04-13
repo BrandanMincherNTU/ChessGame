@@ -946,9 +946,10 @@ public:
 							{
 
 
-								if (board[y][x] >= -10 )
+								if (board[y][x] >= 0 )
 
 
+								
 								{
 									valid = 1;
 
