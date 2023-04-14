@@ -17,6 +17,8 @@ int main()
 	ChessWindow.name = "ChessBoard";
 	ChessWindow.size = 100;
 	
+	ChessGame createpieces;
+
 	ChessWindow.createwindow();
 	
 		

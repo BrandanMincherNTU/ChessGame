@@ -62,10 +62,11 @@ public:
 
 
 
-
+	
 
 	void createwindow()
 	{
+
 		ChessPiece blackrook1;
 		blackrook1.x = 0;
 		blackrook1.y = 0;
@@ -128,6 +129,25 @@ public:
 		blackpawn2.draw = 1;
 		blackpawn2.moved = 0;
 
+
+
+
+
+		//white pieces
+
+		ChessPiece whiteking;
+		whiteking.x = 0;
+		whiteking.y = 0;
+		whiteking.pieceID = 6;
+		whiteking.draw = 1;
+
+
+
+
+
+
+
+
 		sf::Texture blackrooktex;
 		blackrooktex.loadFromFile("images/blackrook.png");
 
@@ -145,6 +165,11 @@ public:
 		
 		sf::Texture blackpawntex;
 		blackpawntex.loadFromFile("images/blackpawn.png");
+
+		//white pieces textures
+
+		sf::Texture whitekingtex;
+		whitekingtex.loadFromFile("images/whiteking.png");
 		
 		sf::Sprite blackrooksprite1(blackrooktex);
 		blackrooksprite1.setScale(1.5, 1.5);
@@ -185,6 +210,16 @@ public:
 		sf::Sprite blackpawnsprite2(blackpawntex);
 		blackpawnsprite2.setScale(1.5, 1.5);
 		blackpawnsprite2.setPosition(100.f, 100.f);
+
+
+
+
+
+		//white pieces 
+		
+		sf::Sprite whitekingsprite(whitekingtex);
+		whitekingsprite.setScale(1.5, 1.5);
+		whitekingsprite.setPosition(400.f, 700.f);
 
 		sf::RenderWindow window(sf::VideoMode(width, height), name);
 
@@ -609,6 +644,18 @@ public:
 
 					}
 
+
+					// white pieeces
+					if (board[y][x] == whiteking.pieceID && turn == 0)
+					{
+						oldx = x;
+						oldy = y;
+
+
+						std::cout << "Moving White King";
+						moving = whiteking.pieceID;
+
+					}
 				}
 				if (event.type == sf::Event::MouseButtonPressed)
 				{
@@ -2050,6 +2097,62 @@ public:
 
 				}
 
+
+				// white pieces
+				if (moving == whiteking.pieceID && event.type == sf::Event::MouseButtonPressed)
+				{
+					if (event.key.code == sf::Mouse::Right)
+					{
+
+						sf::Vector2i mpos = sf::Mouse::getPosition(window);
+						int x = mpos.x / size;
+						int y = mpos.y / size;
+						int dx = x - oldx;
+						int dy = y - oldy;
+						int checker = 0;
+
+
+						if (oldx <= x + 1 && oldy <= y + 1 || oldx <= x - 1 && oldy <= y - 1 || oldx <= x + 1 && oldy <= y - 1 || oldx <= x - 1 && oldy <= y + 1)
+						{
+
+
+							if (board[y][x] >= 0 && (x == oldx + 1 && y == oldy || x == oldx - 1 && y == oldy || y == oldy + 1 && x == oldx || y == oldy - 1 && x == oldx || x == oldx + 1 && y == oldy + 1 || x == oldx - 1 && y == oldy + 1 || x == oldx - 1 && y == oldy - 1 || x == oldx + 1 && y == oldy - 1))
+
+							{
+								valid = 1;
+
+
+								whitekingsprite.setPosition(x * size, y * size);
+
+								board[y][x] = 6;
+								board[oldy][oldx] = 0;
+								moving = 0;
+
+								std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+
+								turn++;
+
+							}
+
+							if (valid == 0)
+							{
+
+								std::cout << "illegal Move" << std::endl;
+							}
+
+
+						}
+
+
+
+
+					}
+
+
+
+				}
 			}
 
 			window.draw(a1);
@@ -2191,6 +2294,17 @@ public:
 
 			}
 
+
+
+
+
+			// white pieces
+
+			if (whiteking.draw == 1)
+			{
+				window.draw(whitekingsprite);
+
+			}
 
 			window.display();
 
