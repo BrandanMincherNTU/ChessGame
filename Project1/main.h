@@ -2243,7 +2243,7 @@ public:
 						{
 
 
-							if (turn == 0 && (board[y][x] == 0 && y == oldy + 1 && oldx == x) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1))
+							if (turn == 0 && (board[y][x] == 0 && y == oldy - 1 && oldx == x) || (board[oldy - 1][oldx + 1] < 0 && x == oldx + 1 && y == oldy - 1) || (board[oldy - 1][oldx - 1] < 0 && x == oldx - 1 && y == oldy - 1))
 
 							{
 								valid = 1;
