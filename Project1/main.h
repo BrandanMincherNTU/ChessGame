@@ -2214,17 +2214,65 @@ public:
 						{
 
 
-							if (turn == 0 && (board[y][x] == 0 && y >= oldy - 2 && oldx == x && board[y + 1][x] == 0 || board[y + 1][x] == whitepawn4.pieceID) || (board[oldy - 1][oldx + 1] < 0 && x == oldx + 1 && y == oldy - 1) || (board[oldy - 1][oldx - 1] < 0 && x == oldx - 1 && y == oldy - 1))
+							if (turn == 0 && ((board[y][x] == 0 && y >= oldy - 2 && oldx == x && board[y + 1][x] == 0 || board[y + 1][x] == whitepawn4.pieceID) || (board[oldy - 1][oldx + 1] < 0 && x == oldx + 1 && y == oldy - 1) || (board[oldy - 1][oldx - 1] < 0 && x == oldx - 1 && y == oldy - 1)))
 
 							{
 								valid = 1;
 
 								
-								
 								if (board[y][x] == blackknight1.pieceID)
 								{
 									blackknight1.draw = 0;
 									std::cout << "   Black Kngiht Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackknight2.pieceID)
+								{
+									blackknight2.draw = 0;
+									std::cout << "   Black Kngiht Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackrook1.pieceID)
+								{
+									blackrook1.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+
+								if (board[y][x] == blackrook2.pieceID)
+								{
+									blackrook2.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackbishop1.pieceID)
+								{
+									blackbishop1.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackbishop2.pieceID)
+								{
+									blackbishop2.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackqueen.pieceID)
+								{
+									blackqueen.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn1.pieceID)
+								{
+									blackpawn1.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn2.pieceID)
+								{
+									blackpawn2.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
 
 								}
 
@@ -2250,7 +2298,7 @@ public:
 						{
 
 
-							if (turn == 0 && (board[y][x] == 0 && y == oldy - 1 && oldx == x) || (board[oldy - 1][oldx + 1] < 0 && x == oldx + 1 && y == oldy - 1) || (board[oldy - 1][oldx - 1] < 0 && x == oldx - 1 && y == oldy - 1))
+							if (turn == 0 && ((board[y][x] == 0 && y == oldy - 1 && oldx == x) || (board[oldy - 1][oldx + 1] < 0 && x == oldx + 1 && y == oldy - 1) || (board[oldy - 1][oldx - 1] < 0 && x == oldx - 1 && y == oldy - 1)))
 
 							{
 								valid = 1;
@@ -2259,6 +2307,55 @@ public:
 								{
 									blackknight1.draw = 0;
 									std::cout << "   Black Kngiht Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackknight2.pieceID)
+								{
+									blackknight2.draw = 0;
+									std::cout << "   Black Kngiht Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackrook1.pieceID)
+								{
+									blackrook1.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+
+								if (board[y][x] == blackrook2.pieceID)
+								{
+									blackrook2.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackbishop1.pieceID)
+								{
+									blackbishop1.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackbishop2.pieceID)
+								{
+									blackbishop2.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackqueen.pieceID)
+								{
+									blackqueen.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn1.pieceID)
+								{
+									blackpawn1.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn2.pieceID)
+								{
+									blackpawn2.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
 
 								}
 
