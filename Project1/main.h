@@ -2342,6 +2342,45 @@ public:
 
 								}
 
+								if (board[y][x] == blackpawn3.pieceID)
+								{
+									blackpawn3.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn4.pieceID)
+								{
+									blackpawn4.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn5.pieceID)
+								{
+									blackpawn5.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn6.pieceID)
+								{
+									blackpawn6.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn7.pieceID)
+								{
+									blackpawn7.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn8.pieceID)
+								{
+									blackpawn8.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+
+
+
 								whitepawnsprite4.setPosition(x* size, y* size);
 								board[y][x] = 1.3;
 								board[oldy][oldx] = 0;
@@ -2427,6 +2466,36 @@ public:
 								if (board[y][x] == blackpawn3.pieceID)
 								{
 									blackpawn3.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn4.pieceID)
+								{
+									blackpawn4.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn5.pieceID)
+								{
+									blackpawn5.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn6.pieceID)
+								{
+									blackpawn6.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn7.pieceID)
+								{
+									blackpawn7.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn8.pieceID)
+								{
+									blackpawn8.draw = 0;
 									std::cout << "   Black Rook Was Taken" << std::endl;
 
 								}
