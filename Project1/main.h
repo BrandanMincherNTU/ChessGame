@@ -2219,9 +2219,16 @@ public:
 							{
 								valid = 1;
 
+								
+								
+								if (board[y][x] == blackknight1.pieceID)
+								{
+									blackknight1.draw = 0;
+									std::cout << "   Black Kngiht Was Taken" << std::endl;
 
-								whitepawnsprite4.setPosition(x * size, y * size);
+								}
 
+								whitepawnsprite4.setPosition(x* size, y* size);
 								board[y][x] = 1.3;
 								board[oldy][oldx] = 0;
 								moving = 0;
@@ -2248,6 +2255,12 @@ public:
 							{
 								valid = 1;
 
+								if (board[y][x] == blackknight1.pieceID)
+								{
+									blackknight1.draw = 0;
+									std::cout << "   Black Kngiht Was Taken" << std::endl;
+
+								}
 
 								whitepawnsprite4.setPosition(x * size, y * size);
 
@@ -2258,9 +2271,9 @@ public:
 								std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
 								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
-								std::cout << "turn" << turn << std::endl;
+								
 								turn++;
-								std::cout << turn << std::endl;
+			
 
 							}
 
