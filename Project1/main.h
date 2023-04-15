@@ -141,8 +141,12 @@ public:
 		whiteking.pieceID = 6;
 		whiteking.draw = 1;
 
-
-
+		ChessPiece whitepawn4;
+		whitepawn4.x = 0;
+		whitepawn4.y = 0;
+		whitepawn4.pieceID = 1.3;
+		whitepawn4.draw = 1;
+		whitepawn4.moved = 0;
 
 
 
@@ -170,7 +174,12 @@ public:
 
 		sf::Texture whitekingtex;
 		whitekingtex.loadFromFile("images/whiteking.png");
+
+		sf::Texture whitepawntex;
+		whitepawntex.loadFromFile("images/whitepawn.png");
 		
+		//setting sprites 
+
 		sf::Sprite blackrooksprite1(blackrooktex);
 		blackrooksprite1.setScale(1.5, 1.5);
 		blackrooksprite1.setPosition(0.f, 0.f);
@@ -220,6 +229,14 @@ public:
 		sf::Sprite whitekingsprite(whitekingtex);
 		whitekingsprite.setScale(1.5, 1.5);
 		whitekingsprite.setPosition(400.f, 700.f);
+
+		sf::Sprite whitepawnsprite4(whitepawntex);
+		whitepawnsprite4.setScale(1.5, 1.5);
+		whitepawnsprite4.setPosition(300.f, 600.f);
+
+
+
+
 
 		sf::RenderWindow window(sf::VideoMode(width, height), name);
 
@@ -646,7 +663,7 @@ public:
 
 
 					// white pieeces
-					if (board[y][x] == whiteking.pieceID && turn == 0)
+					if (board[y][x] == whiteking.pieceID)
 					{
 						oldx = x;
 						oldy = y;
@@ -656,6 +673,24 @@ public:
 						moving = whiteking.pieceID;
 
 					}
+
+
+					if (board[y][x] == whitepawn4.pieceID)
+					{
+						oldx = x;
+						oldy = y;
+
+
+						std::cout << "Moving White Pawn";
+						moving = whitepawn4.pieceID;
+
+					}
+
+
+
+
+
+
 				}
 				if (event.type == sf::Event::MouseButtonPressed)
 				{
@@ -1947,7 +1982,7 @@ public:
 						{
 
 
-							if ((board[y][x] == 0 && y <= oldy + 2 && oldx == x) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1))
+							if (turn == 1 && (board[y][x] == 0 && y <= oldy + 2 && oldx == x && board[y - 1][x] == 0 || board[y - 1][x] == blackpawn1.pieceID) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1))
 
 							{
 								valid = 1;
@@ -1963,7 +1998,7 @@ public:
 								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 
-
+								turn--;
 							}
 						}
 
@@ -1971,7 +2006,7 @@ public:
 						{
 
 
-							if ((board[y][x] == 0 && y == oldy + 1 && oldx == x) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1))
+							if (turn == 1 && (board[y][x] == 0 && y == oldy + 1 && oldx == x) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1))
 
 							{
 								valid = 1;
@@ -1987,7 +2022,7 @@ public:
 								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 
-
+								turn--;
 							}
 						
 							
@@ -2030,7 +2065,7 @@ public:
 						{
 
 
-							if ((board[y][x] == 0 && y <= oldy + 2 && oldx == x) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1))
+							if (turn == 1 && (board[y][x] == 0 && y <= oldy + 2 && oldx == x && board[y - 1][x] == 0 || board[y - 1][x] == blackpawn2.pieceID) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1))
 
 							{
 								valid = 1;
@@ -2046,15 +2081,20 @@ public:
 								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 
+						
+								turn--;
+								
 
 							}
+
+
 						}
 
 						if (blackpawn2.moved > 0)
 						{
 
 
-							if ((board[y][x] == 0 && y == oldy + 1 && oldx == x) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1))
+							if (turn == 1 && (board[y][x] == 0 && y == oldy + 1 && oldx == x) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1))
 
 							{
 								valid = 1;
@@ -2069,7 +2109,9 @@ public:
 								std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
 								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
-
+								std::cout << "turn"<< turn << std::endl;
+								turn--;
+								std::cout << turn << std::endl;
 
 							}
 
@@ -2084,8 +2126,6 @@ public:
 
 							std::cout << "illegal Move" << std::endl;
 						}
-
-
 
 
 
@@ -2112,11 +2152,11 @@ public:
 						int checker = 0;
 
 
-						if (oldx <= x + 1 && oldy <= y + 1 || oldx <= x - 1 && oldy <= y - 1 || oldx <= x + 1 && oldy <= y - 1 || oldx <= x - 1 && oldy <= y + 1)
+						if ( oldx <= x + 1 && oldy <= y + 1 || oldx <= x - 1 && oldy <= y - 1 || oldx <= x + 1 && oldy <= y - 1 || oldx <= x - 1 && oldy <= y + 1)
 						{
 
 
-							if (board[y][x] >= 0 && (x == oldx + 1 && y == oldy || x == oldx - 1 && y == oldy || y == oldy + 1 && x == oldx || y == oldy - 1 && x == oldx || x == oldx + 1 && y == oldy + 1 || x == oldx - 1 && y == oldy + 1 || x == oldx - 1 && y == oldy - 1 || x == oldx + 1 && y == oldy - 1))
+							if (turn == 0 && board[y][x] <= 10 && (x == oldx + 1 && y == oldy || x == oldx - 1 && y == oldy || y == oldy + 1 && x == oldx || y == oldy - 1 && x == oldx || x == oldx + 1 && y == oldy + 1 || x == oldx - 1 && y == oldy + 1 || x == oldx - 1 && y == oldy - 1 || x == oldx + 1 && y == oldy - 1))
 
 							{
 								valid = 1;
@@ -2136,14 +2176,106 @@ public:
 
 							}
 
-							if (valid == 0)
+							else 
 							{
 
 								std::cout << "illegal Move" << std::endl;
 							}
 
 
+
 						}
+
+						else
+						{
+							std::cout << "illegal Move" << std::endl;
+						}
+
+
+					}
+
+
+
+				}
+				if (moving == whitepawn4.pieceID && event.type == sf::Event::MouseButtonPressed)
+				{
+					if (event.key.code == sf::Mouse::Right)
+					{
+
+						sf::Vector2i mpos = sf::Mouse::getPosition(window);
+						int x = mpos.x / size;
+						int y = mpos.y / size;
+						int dx = x - oldx;
+						int dy = y - oldy;
+						int checker = 0;
+
+
+						if (whitepawn4.moved == 0)
+						{
+
+
+							if (turn == 0 && (board[y][x] == 0 && y >= oldy - 2 && oldx == x && board[y + 1][x] == 0 || board[y + 1][x] == whitepawn4.pieceID) || (board[oldy - 1][oldx + 1] < 0 && x == oldx + 1 && y == oldy - 1) || (board[oldy - 1][oldx - 1] < 0 && x == oldx - 1 && y == oldy - 1))
+
+							{
+								valid = 1;
+
+
+								whitepawnsprite4.setPosition(x * size, y * size);
+
+								board[y][x] = 1.3;
+								board[oldy][oldx] = 0;
+								moving = 0;
+								whitepawn4.moved++;
+								std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+
+
+								turn++;
+
+
+							}
+
+
+						}
+
+						if (whitepawn4.moved > 0)
+						{
+
+
+							if (turn == 0 && (board[y][x] == 0 && y == oldy + 1 && oldx == x) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1))
+
+							{
+								valid = 1;
+
+
+								whitepawnsprite4.setPosition(x * size, y * size);
+
+								board[y][x] = 1.3;
+								board[oldy][oldx] = 0;
+								moving = 0;
+
+								std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+								std::cout << "turn" << turn << std::endl;
+								turn++;
+								std::cout << turn << std::endl;
+
+							}
+
+
+
+						}
+
+
+
+						if (valid == 0)
+						{
+
+							std::cout << "illegal Move" << std::endl;
+						}
+
 
 
 
@@ -2303,6 +2435,12 @@ public:
 			if (whiteking.draw == 1)
 			{
 				window.draw(whitekingsprite);
+
+			}
+
+			if (whitepawn4.draw == 1)
+			{
+				window.draw(whitepawnsprite4);
 
 			}
 
