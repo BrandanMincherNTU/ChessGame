@@ -129,7 +129,47 @@ public:
 		blackpawn2.draw = 1;
 		blackpawn2.moved = 0;
 
+		ChessPiece blackpawn3;
+		blackpawn3.x = 0;
+		blackpawn3.y = 0;
+		blackpawn3.pieceID = -1.2;
+		blackpawn3.draw = 1;
+		blackpawn3.moved = 0;
 
+		ChessPiece blackpawn4;
+		blackpawn4.x = 0;
+		blackpawn4.y = 0;
+		blackpawn4.pieceID = -1.3;
+		blackpawn4.draw = 1;
+		blackpawn4.moved = 0;
+
+		ChessPiece blackpawn5;
+		blackpawn5.x = 0;
+		blackpawn5.y = 0;
+		blackpawn5.pieceID = -1.4;
+		blackpawn5.draw = 1;
+		blackpawn5.moved = 0;
+
+		ChessPiece blackpawn6;
+		blackpawn6.x = 0;
+		blackpawn6.y = 0;
+		blackpawn6.pieceID = -1.5;
+		blackpawn6.draw = 1;
+		blackpawn6.moved = 0;
+
+		ChessPiece blackpawn7;
+		blackpawn7.x = 0;
+		blackpawn7.y = 0;
+		blackpawn7.pieceID = -1.6;
+		blackpawn7.draw = 1;
+		blackpawn7.moved = 0;
+		
+		ChessPiece blackpawn8;
+		blackpawn8.x = 0;
+		blackpawn8.y = 0;
+		blackpawn8.pieceID = -1.6;
+		blackpawn8.draw = 1;
+		blackpawn8.moved = 0;
 
 
 
@@ -220,9 +260,29 @@ public:
 		blackpawnsprite2.setScale(1.5, 1.5);
 		blackpawnsprite2.setPosition(100.f, 100.f);
 
+		sf::Sprite blackpawnsprite3(blackpawntex);
+		blackpawnsprite3.setScale(1.5, 1.5);
+		blackpawnsprite3.setPosition(200.f, 100.f);
 
+		sf::Sprite blackpawnsprite4(blackpawntex);
+		blackpawnsprite4.setScale(1.5, 1.5);
+		blackpawnsprite4.setPosition(300.f, 100.f);
 
+		sf::Sprite blackpawnsprite5(blackpawntex);
+		blackpawnsprite5.setScale(1.5, 1.5);
+		blackpawnsprite5.setPosition(400.f, 100.f);
 
+		sf::Sprite blackpawnsprite6(blackpawntex);
+		blackpawnsprite6.setScale(1.5, 1.5);
+		blackpawnsprite6.setPosition(500.f, 100.f);
+
+		sf::Sprite blackpawnsprite7(blackpawntex);
+		blackpawnsprite7.setScale(1.5, 1.5);
+		blackpawnsprite7.setPosition(600.f, 100.f);
+
+		sf::Sprite blackpawnsprite8(blackpawntex);
+		blackpawnsprite8.setScale(1.5, 1.5);
+		blackpawnsprite8.setPosition(700.f, 100.f);
 
 		//white pieces 
 		
@@ -1982,7 +2042,7 @@ public:
 						{
 
 
-							if (turn == 1 && (board[y][x] == 0 && y <= oldy + 2 && oldx == x && board[y - 1][x] == 0 || board[y - 1][x] == blackpawn1.pieceID) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1))
+							if (turn == 1 && ((board[y][x] == 0 && y <= oldy + 2 && oldx == x && board[y - 1][x] == 0 || board[y - 1][x] == blackpawn1.pieceID) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1)))
 
 							{
 								valid = 1;
@@ -2006,7 +2066,7 @@ public:
 						{
 
 
-							if (turn == 1 && (board[y][x] == 0 && y == oldy + 1 && oldx == x) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1))
+							if (turn == 1 && ((board[y][x] == 0 && y == oldy + 1 && oldx == x) || (board[oldy + 1][oldx + 1] > 0 && x == oldx + 1 && y == oldy + 1) || (board[oldy + 1][oldx - 1] > 0 && x == oldx - 1 && y == oldy + 1)))
 
 							{
 								valid = 1;
@@ -2156,7 +2216,7 @@ public:
 						{
 
 
-							if (turn == 0 && board[y][x] <= 10 && (x == oldx + 1 && y == oldy || x == oldx - 1 && y == oldy || y == oldy + 1 && x == oldx || y == oldy - 1 && x == oldx || x == oldx + 1 && y == oldy + 1 || x == oldx - 1 && y == oldy + 1 || x == oldx - 1 && y == oldy - 1 || x == oldx + 1 && y == oldy - 1))
+							if (turn == 0 && (board[y][x] <= 10 && (x == oldx + 1 && y == oldy || x == oldx - 1 && y == oldy || y == oldy + 1 && x == oldx || y == oldy - 1 && x == oldx || x == oldx + 1 && y == oldy + 1 || x == oldx - 1 && y == oldy + 1 || x == oldx - 1 && y == oldy - 1 || x == oldx + 1 && y == oldy - 1)))
 
 							{
 								valid = 1;
@@ -2275,6 +2335,12 @@ public:
 									std::cout << "   Black Rook Was Taken" << std::endl;
 
 								}
+								if (board[y][x] == blackpawn3.pieceID)
+								{
+									blackpawn3.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
 
 								whitepawnsprite4.setPosition(x* size, y* size);
 								board[y][x] = 1.3;
@@ -2355,6 +2421,12 @@ public:
 								if (board[y][x] == blackpawn2.pieceID)
 								{
 									blackpawn2.draw = 0;
+									std::cout << "   Black Rook Was Taken" << std::endl;
+
+								}
+								if (board[y][x] == blackpawn3.pieceID)
+								{
+									blackpawn3.draw = 0;
 									std::cout << "   Black Rook Was Taken" << std::endl;
 
 								}
@@ -2536,6 +2608,37 @@ public:
 
 			}
 
+			if (blackpawn3.draw == 1)
+			{
+				window.draw(blackpawnsprite3);
+
+			}
+
+			if (blackpawn4.draw == 1)
+			{
+				window.draw(blackpawnsprite4);
+
+			}
+			if (blackpawn5.draw == 1)
+			{
+				window.draw(blackpawnsprite5);
+
+			}
+			if (blackpawn6.draw == 1)
+			{
+				window.draw(blackpawnsprite6);
+
+			}
+			if (blackpawn7.draw == 1)
+			{
+				window.draw(blackpawnsprite7);
+
+			}
+			if (blackpawn8.draw == 1)
+			{
+				window.draw(blackpawnsprite8);
+
+			}
 
 
 
