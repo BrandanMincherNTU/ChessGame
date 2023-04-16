@@ -6,7 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <string>
-
+#include <chrono>
 
 /*double board[8][8] =
 {
@@ -51,7 +51,7 @@ class ChessGame
 {
 private:
 	sf::RenderWindow window;
-	
+	sf::Clock clock;
 
 public:
 	int width;
@@ -59,7 +59,7 @@ public:
 	const char* name;
 	int size;
 	int turn = 0;
-
+	int end = 0;
 
 
 	
@@ -181,6 +181,70 @@ public:
 		whiteking.pieceID = 6;
 		whiteking.draw = 1;
 
+		ChessPiece whitequeen;
+		whitequeen.x = 0;
+		whitequeen.y = 0;
+		whitequeen.pieceID = 5;
+		whitequeen.draw = 1;
+
+		ChessPiece whiterook1;
+		whiterook1.x = 0;
+		whiterook1.y = 0;
+		whiterook1.pieceID = 4;
+		whiterook1.draw = 1;
+
+		ChessPiece whiterook2;
+		whiterook2.x = 0;
+		whiterook2.y = 0;
+		whiterook2.pieceID = 4.1;
+		whiterook2.draw = 1;
+
+
+		ChessPiece whitebishop1;
+		whitebishop1.x = 0;
+		whitebishop1.y = 0;
+		whitebishop1.pieceID = 3;
+		whitebishop1.draw = 1;
+
+		ChessPiece whitebishop2;
+		whitebishop2.x = 0;
+		whitebishop2.y = 0;
+		whitebishop2.pieceID = 3.1;
+		whitebishop2.draw = 1;
+
+		ChessPiece whiteknight1;
+		whiteknight1.x = 0;
+		whiteknight1.y = 0;
+		whiteknight1.pieceID = 2;
+		whiteknight1.draw = 1;
+
+		ChessPiece whiteknight2;
+		whiteknight2.x = 0;
+		whiteknight2.y = 0;
+		whiteknight2.pieceID = 2.1;
+		whiteknight2.draw = 1;
+
+		ChessPiece whitepawn1;
+		whitepawn1.x = 0;
+		whitepawn1.y = 0;
+		whitepawn1.pieceID = 1;
+		whitepawn1.draw = 1;
+		whitepawn1.moved = 0;
+		
+		ChessPiece whitepawn2;
+		whitepawn2.x = 0;
+		whitepawn2.y = 0;
+		whitepawn2.pieceID = 1.1;
+		whitepawn2.draw = 1;
+		whitepawn2.moved = 0;
+
+		ChessPiece whitepawn3;
+		whitepawn3.x = 0;
+		whitepawn3.y = 0;
+		whitepawn3.pieceID = 1.2;
+		whitepawn3.draw = 1;
+		whitepawn3.moved = 0;
+
 		ChessPiece whitepawn4;
 		whitepawn4.x = 0;
 		whitepawn4.y = 0;
@@ -188,9 +252,35 @@ public:
 		whitepawn4.draw = 1;
 		whitepawn4.moved = 0;
 
+		ChessPiece whitepawn5;
+		whitepawn5.x = 0;
+		whitepawn5.y = 0;
+		whitepawn5.pieceID = 1.4;
+		whitepawn5.draw = 1;
+		whitepawn5.moved = 0;
 
+		ChessPiece whitepawn6;
+		whitepawn6.x = 0;
+		whitepawn6.y = 0;
+		whitepawn6.pieceID = 1.5;
+		whitepawn6.draw = 1;
+		whitepawn6.moved = 0;
 
+		ChessPiece whitepawn7;
+		whitepawn7.x = 0;
+		whitepawn7.y = 0;
+		whitepawn7.pieceID = 1.6;
+		whitepawn7.draw = 1;
+		whitepawn7.moved = 0;
 
+		ChessPiece whitepawn8;
+		whitepawn8.x = 0;
+		whitepawn8.y = 0;
+		whitepawn8.pieceID = 1.7;
+		whitepawn8.draw = 1;
+		whitepawn8.moved = 0;
+
+		// setting textures
 
 		sf::Texture blackrooktex;
 		blackrooktex.loadFromFile("images/blackrook.png");
@@ -218,6 +308,20 @@ public:
 		sf::Texture whitepawntex;
 		whitepawntex.loadFromFile("images/whitepawn.png");
 		
+		sf::Texture whiterooktex;
+		whiterooktex.loadFromFile("images/whiterook.png");
+
+		sf::Texture whitebishoptex;
+		whitebishoptex.loadFromFile("images/whitebishop.png");
+
+		sf::Texture whiteknighttex;
+		whiteknighttex.loadFromFile("images/whiteknight.png");
+
+		sf::Texture whitequeentex;
+		whitequeentex.loadFromFile("images/whitequeen.png");
+
+
+
 		//setting sprites 
 
 		sf::Sprite blackrooksprite1(blackrooktex);
@@ -290,11 +394,65 @@ public:
 		whitekingsprite.setScale(1.5, 1.5);
 		whitekingsprite.setPosition(400.f, 700.f);
 
+		sf::Sprite whiterooksprite1(whiterooktex);
+		whiterooksprite1.setScale(1.5, 1.5);
+		whiterooksprite1.setPosition(0.f, 700.f);
+
+		sf::Sprite whiterooksprite2(whiterooktex);
+		whiterooksprite2.setScale(1.5, 1.5);
+		whiterooksprite2.setPosition(700.f, 700.f);
+
+		sf::Sprite whitequeensprite(whitequeentex);
+		whitequeensprite.setScale(1.5, 1.5);
+		whitequeensprite.setPosition(300.f, 700.f);
+
+		sf::Sprite whitebishopsprite1(whitebishoptex);
+		whitebishopsprite1.setScale(1.5, 1.5);
+		whitebishopsprite1.setPosition(200.f, 700.f);
+
+		sf::Sprite whitebishopsprite2(whitebishoptex);
+		whitebishopsprite2.setScale(1.5, 1.5);
+		whitebishopsprite2.setPosition(500.f, 700.f);
+
+		sf::Sprite whiteknightsprite1(whiteknighttex);
+		whiteknightsprite1.setScale(1.5, 1.5);
+		whiteknightsprite1.setPosition(100.f, 700.f);
+
+		sf::Sprite whiteknightsprite2(whiteknighttex);
+		whiteknightsprite2.setScale(1.5, 1.5);
+		whiteknightsprite2.setPosition(600.f, 700.f);
+
+		sf::Sprite whitepawnsprite1(whitepawntex);
+		whitepawnsprite1.setScale(1.5, 1.5);
+		whitepawnsprite1.setPosition(0.f, 600.f);
+
+		sf::Sprite whitepawnsprite2(whitepawntex);
+		whitepawnsprite2.setScale(1.5, 1.5);
+		whitepawnsprite2.setPosition(100.f, 600.f);
+
+		sf::Sprite whitepawnsprite3(whitepawntex);
+		whitepawnsprite3.setScale(1.5, 1.5);
+		whitepawnsprite3.setPosition(200.f, 600.f);
+
 		sf::Sprite whitepawnsprite4(whitepawntex);
 		whitepawnsprite4.setScale(1.5, 1.5);
 		whitepawnsprite4.setPosition(300.f, 600.f);
 
+		sf::Sprite whitepawnsprite5(whitepawntex);
+		whitepawnsprite5.setScale(1.5, 1.5);
+		whitepawnsprite5.setPosition(400.f, 600.f);
 
+		sf::Sprite whitepawnsprite6(whitepawntex);
+		whitepawnsprite6.setScale(1.5, 1.5);
+		whitepawnsprite6.setPosition(500.f, 600.f);
+
+		sf::Sprite whitepawnsprite7(whitepawntex);
+		whitepawnsprite7.setScale(1.5, 1.5);
+		whitepawnsprite7.setPosition(600.f, 600.f);
+
+		sf::Sprite whitepawnsprite8(whitepawntex);
+		whitepawnsprite8.setScale(1.5, 1.5);
+		whitepawnsprite8.setPosition(700.f, 600.f);
 
 
 
@@ -3089,6 +3247,13 @@ public:
 									std::cout << "   Black Rook Was Taken" << std::endl;
 
 								}
+
+								if (board[y][x] == blackking.pieceID)
+								{
+									blackking.draw = 0;
+									std::cout << "   Black King Was Taken" << std::endl;
+
+								}
 								if (board[y][x] == blackqueen.pieceID)
 								{
 									blackqueen.draw = 0;
@@ -3217,6 +3382,12 @@ public:
 									std::cout << "   Black Rook Was Taken" << std::endl;
 
 								}
+								if (board[y][x] == blackking.pieceID)
+								{
+									blackking.draw = 0;
+									std::cout << "   Black King Was Taken" << std::endl;
+
+								}
 								if (board[y][x] == blackqueen.pieceID)
 								{
 									blackqueen.draw = 0;
@@ -3286,6 +3457,28 @@ public:
 			
 
 							}
+
+
+							if (board[y + 1][x] == blackpawn5.pieceID && blackpawn5.moved == 1)
+							{
+								
+								valid = 1;
+								whitepawnsprite4.setPosition(x* size, y* size);
+								blackpawn5.draw = 0;
+								board[y][x] = 1.3;
+								board[oldy][oldx] = 0;
+								moving = 0;
+
+								std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+								std::cout << "En Passant!!!" << std::endl;
+								turn++;
+
+
+
+							}
+
 
 
 
@@ -3492,9 +3685,75 @@ public:
 
 			// white pieces
 
+			if (whiterook1.draw == 1)
+			{
+				window.draw(whiterooksprite1);
+
+			}
+
+			if (whiterook1.draw == 1)
+			{
+				window.draw(whiterooksprite2);
+
+			}
+
+			if (whiterook2.draw == 1)
+			{
+				window.draw(whiterooksprite2);
+
+			}
+
+			if (whitequeen.draw == 1)
+			{
+				window.draw(whitequeensprite);
+
+			}
+
 			if (whiteking.draw == 1)
 			{
 				window.draw(whitekingsprite);
+
+			}
+
+			if (whitebishop1.draw == 1)
+			{
+				window.draw(whitebishopsprite1);
+
+			}
+
+			if (whitebishop2.draw == 1)
+			{
+				window.draw(whitebishopsprite2);
+
+			}
+
+			if (whiteknight1.draw == 1)
+			{
+				window.draw(whiteknightsprite1);
+
+			}
+
+			if (whiteknight2.draw == 1)
+			{
+				window.draw(whiteknightsprite2);
+
+			}
+
+			if (whitepawn1.draw == 1)
+			{
+				window.draw(whitepawnsprite1);
+
+			}
+
+			if (whitepawn2.draw == 1)
+			{
+				window.draw(whitepawnsprite2);
+
+			}
+
+			if (whitepawn3.draw == 1)
+			{
+				window.draw(whitepawnsprite3);
 
 			}
 
@@ -3503,7 +3762,41 @@ public:
 				window.draw(whitepawnsprite4);
 
 			}
+			if (whitepawn5.draw == 1)
+			{
+				window.draw(whitepawnsprite5);
 
+			}
+			if (whitepawn6.draw == 1)
+			{
+				window.draw(whitepawnsprite6);
+
+			}
+			if (whitepawn7.draw == 1)
+			{
+				window.draw(whitepawnsprite7);
+
+			}
+			if (whitepawn8.draw == 1)
+			{
+				window.draw(whitepawnsprite8);
+
+			}
+
+
+
+
+
+
+
+			// game end
+			if (blackking.draw == 0 && end == 0 )
+			{
+				
+				std::cout << "White Wins!";
+				end++;
+
+			}
 			window.display();
 
 
