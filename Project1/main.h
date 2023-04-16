@@ -35,7 +35,7 @@ double board[8][8] =
 
 };
 
-
+//from pc
 
 struct ChessPiece
 {
