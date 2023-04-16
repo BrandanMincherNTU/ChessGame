@@ -3921,7 +3921,7 @@ public:
 								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 
-
+								turn--;
 							}
 
 							if (valid == 0)
