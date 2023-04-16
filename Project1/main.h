@@ -1016,6 +1016,16 @@ public:
 						moving = whitebishop1.pieceID;
 
 					}
+					if (board[y][x] == whitebishop2.pieceID)
+					{
+						oldx = x;
+						oldy = y;
+
+
+						std::cout << "Moving White Bishop";
+						moving = whitebishop2.pieceID;
+
+					}
 
 					if (board[y][x] == whitepawn1.pieceID)
 					{
