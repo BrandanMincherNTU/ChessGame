@@ -5278,13 +5278,13 @@ public:
 								if (board[y][x] == blackbishop1.pieceID)
 								{
 									blackbishop1.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Bishop Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackbishop2.pieceID)
 								{
 									blackbishop2.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Bishop Was Taken" << std::endl;
 
 								}
 
@@ -5297,62 +5297,62 @@ public:
 								if (board[y][x] == blackqueen.pieceID)
 								{
 									blackqueen.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Queen Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn1.pieceID)
 								{
 									blackpawn1.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn2.pieceID)
 								{
 									blackpawn2.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn3.pieceID)
 								{
 									blackpawn3.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 
 								if (board[y][x] == blackpawn3.pieceID)
 								{
 									blackpawn3.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn4.pieceID)
 								{
 									blackpawn4.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn5.pieceID)
 								{
 									blackpawn5.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn6.pieceID)
 								{
 									blackpawn6.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn7.pieceID)
 								{
 									blackpawn7.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn8.pieceID)
 								{
 									blackpawn8.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 
@@ -5383,7 +5383,7 @@ public:
 							if (turn == 0 && ((board[y][x] == 0 && y == oldy - 1 && oldx == x) || (board[oldy - 1][oldx + 1] < 0 && x == oldx + 1 && y == oldy - 1) || (board[oldy - 1][oldx - 1] < 0 && x == oldx - 1 && y == oldy - 1)))
 
 							{
-								valid = 1;
+								
 
 								if (board[y][x] == blackknight1.pieceID)
 								{
@@ -5413,15 +5413,16 @@ public:
 								if (board[y][x] == blackbishop1.pieceID)
 								{
 									blackbishop1.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Bishop Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackbishop2.pieceID)
 								{
 									blackbishop2.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Bishop Was Taken" << std::endl;
 
 								}
+
 								if (board[y][x] == blackking.pieceID)
 								{
 									blackking.draw = 0;
@@ -5431,57 +5432,65 @@ public:
 								if (board[y][x] == blackqueen.pieceID)
 								{
 									blackqueen.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Queen Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn1.pieceID)
 								{
 									blackpawn1.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn2.pieceID)
 								{
 									blackpawn2.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn3.pieceID)
 								{
 									blackpawn3.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
+
+								}
+
+								if (board[y][x] == blackpawn3.pieceID)
+								{
+									blackpawn3.draw = 0;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn4.pieceID)
 								{
 									blackpawn4.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn5.pieceID)
 								{
 									blackpawn5.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn6.pieceID)
 								{
 									blackpawn6.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn7.pieceID)
 								{
 									blackpawn7.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn8.pieceID)
 								{
 									blackpawn8.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
+								valid = 1;
 
 								whitepawnsprite1.setPosition(x * size, y * size);
 
@@ -5702,7 +5711,7 @@ public:
 							if (turn == 0 && ((board[y][x] == 0 && y >= oldy - 2 && oldx == x && board[y + 1][x] == 0 || board[y + 1][x] == whitepawn4.pieceID) || (board[oldy - 1][oldx + 1] < 0 && x == oldx + 1 && y == oldy - 1) || (board[oldy - 1][oldx - 1] < 0 && x == oldx - 1 && y == oldy - 1)))
 
 							{
-								valid = 1;
+								
 
 								
 								if (board[y][x] == blackknight1.pieceID)
@@ -5733,13 +5742,13 @@ public:
 								if (board[y][x] == blackbishop1.pieceID)
 								{
 									blackbishop1.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Bishop Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackbishop2.pieceID)
 								{
 									blackbishop2.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Bishop Was Taken" << std::endl;
 
 								}
 
@@ -5752,66 +5761,66 @@ public:
 								if (board[y][x] == blackqueen.pieceID)
 								{
 									blackqueen.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Queen Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn1.pieceID)
 								{
 									blackpawn1.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn2.pieceID)
 								{
 									blackpawn2.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn3.pieceID)
 								{
 									blackpawn3.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 
 								if (board[y][x] == blackpawn3.pieceID)
 								{
 									blackpawn3.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn4.pieceID)
 								{
 									blackpawn4.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn5.pieceID)
 								{
 									blackpawn5.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn6.pieceID)
 								{
 									blackpawn6.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn7.pieceID)
 								{
 									blackpawn7.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn8.pieceID)
 								{
 									blackpawn8.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 
-
+								valid = 1;
 
 								whitepawnsprite4.setPosition(x* size, y* size);
 								board[y][x] = 1.3;
@@ -5838,8 +5847,6 @@ public:
 							if (turn == 0 && ((board[y][x] == 0 && y == oldy - 1 && oldx == x) || (board[oldy - 1][oldx + 1] < 0 && x == oldx + 1 && y == oldy - 1) || (board[oldy - 1][oldx - 1] < 0 && x == oldx - 1 && y == oldy - 1)))
 
 							{
-								valid = 1;
-
 								if (board[y][x] == blackknight1.pieceID)
 								{
 									blackknight1.draw = 0;
@@ -5868,15 +5875,16 @@ public:
 								if (board[y][x] == blackbishop1.pieceID)
 								{
 									blackbishop1.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Bishop Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackbishop2.pieceID)
 								{
 									blackbishop2.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Bishop Was Taken" << std::endl;
 
 								}
+
 								if (board[y][x] == blackking.pieceID)
 								{
 									blackking.draw = 0;
@@ -5886,57 +5894,66 @@ public:
 								if (board[y][x] == blackqueen.pieceID)
 								{
 									blackqueen.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Queen Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn1.pieceID)
 								{
 									blackpawn1.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn2.pieceID)
 								{
 									blackpawn2.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn3.pieceID)
 								{
 									blackpawn3.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
+
+								}
+
+								if (board[y][x] == blackpawn3.pieceID)
+								{
+									blackpawn3.draw = 0;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn4.pieceID)
 								{
 									blackpawn4.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn5.pieceID)
 								{
 									blackpawn5.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn6.pieceID)
 								{
 									blackpawn6.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn7.pieceID)
 								{
 									blackpawn7.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
 								if (board[y][x] == blackpawn8.pieceID)
 								{
 									blackpawn8.draw = 0;
-									std::cout << "   Black Rook Was Taken" << std::endl;
+									std::cout << "   Black Pawn Was Taken" << std::endl;
 
 								}
+
+								valid = 1;
 
 								whitepawnsprite4.setPosition(x * size, y * size);
 
