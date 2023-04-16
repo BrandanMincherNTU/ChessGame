@@ -1630,7 +1630,7 @@ public:
 							if ((x == oldx + i && y == oldy || x == oldx - i && y == oldy) || (y == oldy + i && x == oldx || y == oldy - i && x == oldx))
 							{
 
-								if (oldy < y && x == oldx) // Rook2 moving down
+								if (turn == 1 && (oldy < y && x == oldx)) // Rook2 moving down
 								{
 
 									for (int i = oldy + 1; i < y; i++)
@@ -1648,6 +1648,108 @@ public:
 
 
 									{
+										if (board[y][x] == whiteknight1.pieceID)
+										{
+											whiteknight1.draw = 0;
+											std::cout << "   White Kngiht Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whiteknight2.pieceID)
+										{
+											whiteknight2.draw = 0;
+											std::cout << "   White Kngiht Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whiterook1.pieceID)
+										{
+											whiterook1.draw = 0;
+											std::cout << "   White Rook Was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whiterook2.pieceID)
+										{
+											whiterook2.draw = 0;
+											std::cout << "   White Rook Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitebishop1.pieceID)
+										{
+											whitebishop1.draw = 0;
+											std::cout << "   White Bishop Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitebishop2.pieceID)
+										{
+											whitebishop2.draw = 0;
+											std::cout << "   White Bishop Was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whiteking.pieceID)
+										{
+											whiteking.draw = 0;
+											std::cout << "   White King Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitequeen.pieceID)
+										{
+											whitequeen.draw = 0;
+											std::cout << "   White Queen was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn1.pieceID)
+										{
+											whitepawn1.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn2.pieceID)
+										{
+											whitepawn2.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn3.pieceID)
+										{
+											whitepawn3.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn4.pieceID)
+										{
+											whitepawn4.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn5.pieceID)
+										{
+											whitepawn5.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn6.pieceID)
+										{
+											whitepawn6.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn7.pieceID)
+										{
+											whitepawn6.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn8.pieceID)
+										{
+											whitepawn8.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
 										valid = 1;
 
 										blackrooksprite2.setPosition(x * size, y * size);
@@ -1661,7 +1763,7 @@ public:
 										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
-
+										turn--;
 									}
 
 
@@ -1673,7 +1775,7 @@ public:
 
 								}
 
-								if (oldy > y && x == oldx) // Rook Moving Up
+								if (turn == 1 && (oldy > y && x == oldx)) // Rook Moving Up
 								{
 									for (int i = oldy - 1; i > y; i--)
 									{
@@ -1689,6 +1791,108 @@ public:
 
 									if (board[y][x] >= 0 && checker == (oldy - 1) - y)
 									{
+										if (board[y][x] == whiteknight1.pieceID)
+										{
+											whiteknight1.draw = 0;
+											std::cout << "   White Kngiht Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whiteknight2.pieceID)
+										{
+											whiteknight2.draw = 0;
+											std::cout << "   White Kngiht Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whiterook1.pieceID)
+										{
+											whiterook1.draw = 0;
+											std::cout << "   White Rook Was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whiterook2.pieceID)
+										{
+											whiterook2.draw = 0;
+											std::cout << "   White Rook Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitebishop1.pieceID)
+										{
+											whitebishop1.draw = 0;
+											std::cout << "   White Bishop Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitebishop2.pieceID)
+										{
+											whitebishop2.draw = 0;
+											std::cout << "   White Bishop Was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whiteking.pieceID)
+										{
+											whiteking.draw = 0;
+											std::cout << "   White King Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitequeen.pieceID)
+										{
+											whitequeen.draw = 0;
+											std::cout << "   White Queen was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn1.pieceID)
+										{
+											whitepawn1.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn2.pieceID)
+										{
+											whitepawn2.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn3.pieceID)
+										{
+											whitepawn3.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn4.pieceID)
+										{
+											whitepawn4.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn5.pieceID)
+										{
+											whitepawn5.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn6.pieceID)
+										{
+											whitepawn6.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn7.pieceID)
+										{
+											whitepawn6.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn8.pieceID)
+										{
+											whitepawn8.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
 										valid = 1;
 
 
@@ -1702,7 +1906,8 @@ public:
 
 										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
-
+										checker = 0;
+										turn++;
 
 									}
 
@@ -1711,7 +1916,7 @@ public:
 
 
 
-								if (oldx < x && y == oldy) // Rook Moving Right
+								if (turn == 1 && (oldx < x && y == oldy)) // Rook Moving Right
 								{
 
 									for (int i = oldx + 1; i < x; i++)
@@ -1725,6 +1930,108 @@ public:
 
 									if (board[y][x] >= 0 && checker == (x - 1) - oldx)
 									{
+										if (board[y][x] == whiteknight1.pieceID)
+										{
+											whiteknight1.draw = 0;
+											std::cout << "   White Kngiht Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whiteknight2.pieceID)
+										{
+											whiteknight2.draw = 0;
+											std::cout << "   White Kngiht Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whiterook1.pieceID)
+										{
+											whiterook1.draw = 0;
+											std::cout << "   White Rook Was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whiterook2.pieceID)
+										{
+											whiterook2.draw = 0;
+											std::cout << "   White Rook Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitebishop1.pieceID)
+										{
+											whitebishop1.draw = 0;
+											std::cout << "   White Bishop Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitebishop2.pieceID)
+										{
+											whitebishop2.draw = 0;
+											std::cout << "   White Bishop Was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whiteking.pieceID)
+										{
+											whiteking.draw = 0;
+											std::cout << "   White King Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitequeen.pieceID)
+										{
+											whitequeen.draw = 0;
+											std::cout << "   White Queen was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn1.pieceID)
+										{
+											whitepawn1.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn2.pieceID)
+										{
+											whitepawn2.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn3.pieceID)
+										{
+											whitepawn3.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn4.pieceID)
+										{
+											whitepawn4.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn5.pieceID)
+										{
+											whitepawn5.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn6.pieceID)
+										{
+											whitepawn6.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn7.pieceID)
+										{
+											whitepawn6.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn8.pieceID)
+										{
+											whitepawn8.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
 										valid = 1;
 
 
@@ -1738,13 +2045,16 @@ public:
 
 										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+
+										checker = 0;
+										turn--;
 									}
 
 
 
 								}
 
-								if (oldx > x && y == oldy) // left
+								if (turn == 1 && (oldx > x && y == oldy)) // left
 								{
 
 									for (int i = oldx - 1; i > x; i--)
@@ -1760,6 +2070,108 @@ public:
 
 									if (board[y][x] >= 0 && checker == (oldx - 1) - x)
 									{
+										if (board[y][x] == whiteknight1.pieceID)
+										{
+											whiteknight1.draw = 0;
+											std::cout << "   White Kngiht Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whiteknight2.pieceID)
+										{
+											whiteknight2.draw = 0;
+											std::cout << "   White Kngiht Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whiterook1.pieceID)
+										{
+											whiterook1.draw = 0;
+											std::cout << "   White Rook Was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whiterook2.pieceID)
+										{
+											whiterook2.draw = 0;
+											std::cout << "   White Rook Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitebishop1.pieceID)
+										{
+											whitebishop1.draw = 0;
+											std::cout << "   White Bishop Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitebishop2.pieceID)
+										{
+											whitebishop2.draw = 0;
+											std::cout << "   White Bishop Was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whiteking.pieceID)
+										{
+											whiteking.draw = 0;
+											std::cout << "   White King Was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitequeen.pieceID)
+										{
+											whitequeen.draw = 0;
+											std::cout << "   White Queen was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn1.pieceID)
+										{
+											whitepawn1.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn2.pieceID)
+										{
+											whitepawn2.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn3.pieceID)
+										{
+											whitepawn3.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn4.pieceID)
+										{
+											whitepawn4.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn5.pieceID)
+										{
+											whitepawn5.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+										if (board[y][x] == whitepawn6.pieceID)
+										{
+											whitepawn6.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn7.pieceID)
+										{
+											whitepawn6.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
+
+										if (board[y][x] == whitepawn8.pieceID)
+										{
+											whitepawn8.draw = 0;
+											std::cout << "   White Pawn was Taken" << std::endl;
+
+										}
 										valid = 1;
 
 
@@ -1773,6 +2185,8 @@ public:
 
 										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+										checker = 0;
+										turn--;
 									}
 
 								}
@@ -6241,17 +6655,12 @@ public:
 
 			}
 
-			if (blackrook1.draw == 1)
-			{
-				window.draw(blackrooksprite2);
-
-			}
-
 			if (blackrook2.draw == 1)
 			{
 				window.draw(blackrooksprite2);
 
 			}
+
 
 			if (blackqueen.draw == 1)
 			{
