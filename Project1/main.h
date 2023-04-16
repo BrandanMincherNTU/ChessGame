@@ -5502,7 +5502,7 @@ public:
 
 									valid = 1;
 									blackpawnsprite1.setPosition(x * size, y * size);
-									blackpawn4.draw = 0;
+									whitepawn4.draw = 0;
 									board[y][x] = 1;
 									board[oldy][oldx] = 0;
 									moving = 0;
@@ -5524,7 +5524,7 @@ public:
 
 									valid = 1;
 									blackpawnsprite1.setPosition(x * size, y * size);
-									blackpawn5.draw = 0;
+									whitepawn5.draw = 0;
 									board[y][x] = 1;
 									board[oldy][oldx] = 0;
 									moving = 0;
@@ -5545,7 +5545,7 @@ public:
 
 									valid = 1;
 									blackpawnsprite1.setPosition(x * size, y * size);
-									blackpawn6.draw = 0;
+									whitepawn6.draw = 0;
 									board[y][x] = 1;
 									board[oldy][oldx] = 0;
 									moving = 0;
@@ -5566,7 +5566,7 @@ public:
 
 									valid = 1;
 									blackpawnsprite1.setPosition(x * size, y * size);
-									blackpawn7.draw = 0;
+									whitepawn7.draw = 0;
 									board[y][x] = 1;
 									board[oldy][oldx] = 0;
 									moving = 0;
@@ -5586,7 +5586,7 @@ public:
 
 									valid = 1;
 									blackpawnsprite1.setPosition(x * size, y * size);
-									blackpawn8.draw = 0;
+									whitepawn8.draw = 0;
 									board[y][x] = 1;
 									board[oldy][oldx] = 0;
 									moving = 0;
@@ -5764,7 +5764,8 @@ public:
 								std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 								turn--;
-								
+								totalturns++;
+								blackpawn2.lastmoved = totalturns;
 
 							}
 
@@ -5894,7 +5895,8 @@ public:
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 								std::cout << "turn"<< turn << std::endl;
 								turn--;
-
+								totalturns++;
+								blackpawn2.lastmoved = totalturns;
 							}
 
 							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
@@ -5969,7 +5971,7 @@ public:
 
 									valid = 1;
 									blackpawnsprite2.setPosition(x * size, y * size);
-									blackpawn4.draw = 0;
+									whitepawn4.draw = 0;
 									board[y][x] = 1;
 									board[oldy][oldx] = 0;
 									moving = 0;
@@ -5991,7 +5993,7 @@ public:
 
 									valid = 1;
 									blackpawnsprite2.setPosition(x * size, y * size);
-									blackpawn5.draw = 0;
+									whitepawn5.draw = 0;
 									board[y][x] = 1;
 									board[oldy][oldx] = 0;
 									moving = 0;
@@ -6012,7 +6014,7 @@ public:
 
 									valid = 1;
 									blackpawnsprite2.setPosition(x * size, y * size);
-									blackpawn6.draw = 0;
+									whitepawn6.draw = 0;
 									board[y][x] = 1;
 									board[oldy][oldx] = 0;
 									moving = 0;
@@ -6033,7 +6035,7 @@ public:
 
 									valid = 1;
 									blackpawnsprite2.setPosition(x * size, y * size);
-									blackpawn7.draw = 0;
+									whitepawn7.draw = 0;
 									board[y][x] = 1;
 									board[oldy][oldx] = 0;
 									moving = 0;
@@ -6053,7 +6055,7 @@ public:
 
 									valid = 1;
 									blackpawnsprite2.setPosition(x * size, y * size);
-									blackpawn8.draw = 0;
+									whitepawn8.draw = 0;
 									board[y][x] = 1;
 									board[oldy][oldx] = 0;
 									moving = 0;
@@ -6228,7 +6230,8 @@ public:
 
 
 								turn--;
-
+								totalturns++;
+								blackpawn2.lastmoved = totalturns;
 
 							}
 
@@ -6358,11 +6361,185 @@ public:
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 								std::cout << "turn" << turn << std::endl;
 								turn--;
-								std::cout << turn << std::endl;
+								totalturns++;
+								blackpawn2.lastmoved = totalturns;
 
 							}
 
+							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
+							{
 
+								if (board[y - 1][x] == whitepawn1.pieceID && whitepawn1.moved == 1 && whitepawn1.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite3.setPosition(x * size, y * size);
+									whitepawn1.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn3.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn3.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn2.pieceID && whitepawn2.moved == 1 && whitepawn2.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite3.setPosition(x * size, y * size);
+									whitepawn2.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn3.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn3.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn3.pieceID && whitepawn3.moved == 1 && whitepawn3.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite3.setPosition(x * size, y * size);
+									whitepawn3.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn3.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn3.lastmoved = totalturns;
+
+
+
+								}
+
+								if (board[y - 1][x] == whitepawn4.pieceID && whitepawn4.moved == 1 && whitepawn4.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite3.setPosition(x * size, y * size);
+									whitepawn4.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn3.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn3.lastmoved = totalturns;
+
+
+
+								}
+
+								if (board[y - 1][x] == whitepawn5.pieceID && whitepawn5.moved == 1 && whitepawn5.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite3.setPosition(x * size, y * size);
+									whitepawn5.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn3.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn3.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn6.pieceID && whitepawn6.moved == 1 && whitepawn6.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite3.setPosition(x * size, y * size);
+									blackpawn6.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn3.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn3.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn7.pieceID && whitepawn7.moved == 1 && whitepawn7.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite3.setPosition(x * size, y * size);
+									whitepawn7.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn3.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn3.lastmoved = totalturns;
+
+
+								}
+								if (board[y - 1][x] == whitepawn8.pieceID && whitepawn8.moved == 1 && whitepawn8.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite3.setPosition(x * size, y * size);
+									whitepawn8.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn3.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn3.lastmoved = totalturns;
+
+
+								}
+
+
+							}
 
 						}
 
@@ -6520,7 +6697,8 @@ public:
 
 
 								turn--;
-
+								totalturns++;
+								blackpawn4.lastmoved = totalturns;
 
 							}
 
@@ -6650,11 +6828,185 @@ public:
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 								std::cout << "turn" << turn << std::endl;
 								turn--;
-								std::cout << turn << std::endl;
+								totalturns++;
+								blackpawn4.lastmoved = totalturns;
 
 							}
 
+							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
+							{
 
+								if (board[y - 1][x] == whitepawn1.pieceID && whitepawn1.moved == 1 && whitepawn1.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite4.setPosition(x * size, y * size);
+									whitepawn1.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn4.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn4.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn2.pieceID && whitepawn2.moved == 1 && whitepawn2.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite4.setPosition(x * size, y * size);
+									whitepawn2.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn4.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn4.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn3.pieceID && whitepawn3.moved == 1 && whitepawn3.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite4.setPosition(x * size, y * size);
+									whitepawn3.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn4.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn4.lastmoved = totalturns;
+
+
+
+								}
+
+								if (board[y - 1][x] == whitepawn4.pieceID && whitepawn4.moved == 1 && whitepawn4.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite4.setPosition(x * size, y * size);
+									whitepawn4.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn4.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn4.lastmoved = totalturns;
+
+
+
+								}
+
+								if (board[y - 1][x] == whitepawn5.pieceID && whitepawn5.moved == 1 && whitepawn5.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite4.setPosition(x * size, y * size);
+									whitepawn5.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn4.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn4.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn6.pieceID && whitepawn6.moved == 1 && whitepawn6.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite4.setPosition(x * size, y * size);
+									blackpawn6.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn4.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn4.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn7.pieceID && whitepawn7.moved == 1 && whitepawn7.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite4.setPosition(x * size, y * size);
+									whitepawn7.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn4.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn4.lastmoved = totalturns;
+
+
+								}
+								if (board[y - 1][x] == whitepawn8.pieceID && whitepawn8.moved == 1 && whitepawn8.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite4.setPosition(x * size, y * size);
+									whitepawn8.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn4.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn4.lastmoved = totalturns;
+
+
+								}
+
+
+							}
 
 						}
 
@@ -6812,7 +7164,8 @@ public:
 
 
 								turn--;
-
+								totalturns++;
+								blackpawn5.lastmoved = totalturns;
 
 							}
 
@@ -6942,11 +7295,185 @@ public:
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 								std::cout << "turn" << turn << std::endl;
 								turn--;
-								std::cout << turn << std::endl;
+								totalturns++;
+								blackpawn5.lastmoved = totalturns;
 
 							}
 
+							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
+							{
 
+								if (board[y - 1][x] == whitepawn1.pieceID && whitepawn1.moved == 1 && whitepawn1.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite5.setPosition(x * size, y * size);
+									whitepawn1.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn5.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn5.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn2.pieceID && whitepawn2.moved == 1 && whitepawn2.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite5.setPosition(x * size, y * size);
+									whitepawn2.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn5.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn5.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn3.pieceID && whitepawn3.moved == 1 && whitepawn3.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite5.setPosition(x * size, y * size);
+									whitepawn3.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn5.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn5.lastmoved = totalturns;
+
+
+
+								}
+
+								if (board[y - 1][x] == whitepawn4.pieceID && whitepawn4.moved == 1 && whitepawn4.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite5.setPosition(x * size, y * size);
+									whitepawn4.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn5.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn5.lastmoved = totalturns;
+
+
+
+								}
+
+								if (board[y - 1][x] == whitepawn5.pieceID && whitepawn5.moved == 1 && whitepawn5.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite5.setPosition(x * size, y * size);
+									blackpawn5.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn5.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn5.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn6.pieceID && whitepawn6.moved == 1 && whitepawn6.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite5.setPosition(x * size, y * size);
+									whitepawn6.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn5.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn5.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn7.pieceID && whitepawn7.moved == 1 && whitepawn7.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite5.setPosition(x * size, y * size);
+									whitepawn7.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn5.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn5.lastmoved = totalturns;
+
+
+								}
+								if (board[y - 1][x] == whitepawn8.pieceID && whitepawn8.moved == 1 && whitepawn8.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite5.setPosition(x * size, y * size);
+									whitepawn8.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn5.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn5.lastmoved = totalturns;
+
+
+								}
+
+
+							}
 
 						}
 
@@ -7104,7 +7631,8 @@ public:
 
 
 								turn--;
-
+								totalturns++;
+								blackpawn6.lastmoved = totalturns;
 
 							}
 
@@ -7234,11 +7762,185 @@ public:
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 								std::cout << "turn" << turn << std::endl;
 								turn--;
-								std::cout << turn << std::endl;
+								totalturns++;
+								blackpawn6.lastmoved = totalturns;
 
 							}
 
+							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
+							{
 
+								if (board[y - 1][x] == whitepawn1.pieceID && whitepawn1.moved == 1 && whitepawn1.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite6.setPosition(x * size, y * size);
+									whitepawn1.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn6.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn6.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn2.pieceID && whitepawn2.moved == 1 && whitepawn2.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite6.setPosition(x * size, y * size);
+									whitepawn2.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn6.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn6.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn3.pieceID && whitepawn3.moved == 1 && whitepawn3.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite6.setPosition(x * size, y * size);
+									whitepawn3.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn6.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn6.lastmoved = totalturns;
+
+
+
+								}
+
+								if (board[y - 1][x] == whitepawn4.pieceID && whitepawn4.moved == 1 && whitepawn4.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite6.setPosition(x * size, y * size);
+									whitepawn4.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn6.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn6.lastmoved = totalturns;
+
+
+
+								}
+
+								if (board[y - 1][x] == whitepawn5.pieceID && whitepawn5.moved == 1 && whitepawn5.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite6.setPosition(x * size, y * size);
+									whitepawn5.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn6.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn6.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn6.pieceID && whitepawn6.moved == 1 && whitepawn6.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite6.setPosition(x * size, y * size);
+									whitepawn6.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn6.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn6.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn7.pieceID && whitepawn7.moved == 1 && whitepawn7.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite6.setPosition(x * size, y * size);
+									whitepawn7.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn6.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn6.lastmoved = totalturns;
+
+
+								}
+								if (board[y - 1][x] == whitepawn8.pieceID && whitepawn8.moved == 1 && whitepawn8.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite6.setPosition(x * size, y * size);
+									whitepawn8.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn6.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn6.lastmoved = totalturns;
+
+
+								}
+
+
+							}
 
 						}
 
@@ -7396,7 +8098,8 @@ public:
 
 
 								turn--;
-
+								totalturns++;
+								blackpawn7.lastmoved = totalturns;
 
 							}
 
@@ -7526,11 +8229,185 @@ public:
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 								std::cout << "turn" << turn << std::endl;
 								turn--;
-								std::cout << turn << std::endl;
+								totalturns++;
+								blackpawn7.lastmoved = totalturns;
 
 							}
 
+							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
+							{
 
+								if (board[y - 1][x] == whitepawn1.pieceID && whitepawn1.moved == 1 && whitepawn1.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite7.setPosition(x * size, y * size);
+									whitepawn1.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn7.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn7.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn2.pieceID && whitepawn2.moved == 1 && whitepawn2.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite7.setPosition(x * size, y * size);
+									whitepawn2.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn7.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn7.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn3.pieceID && whitepawn3.moved == 1 && whitepawn3.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite7.setPosition(x * size, y * size);
+									whitepawn3.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn7.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn7.lastmoved = totalturns;
+
+
+
+								}
+
+								if (board[y - 1][x] == whitepawn4.pieceID && whitepawn4.moved == 1 && whitepawn4.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite7.setPosition(x * size, y * size);
+									whitepawn4.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn7.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn7.lastmoved = totalturns;
+
+
+
+								}
+
+								if (board[y - 1][x] == whitepawn5.pieceID && whitepawn5.moved == 1 && whitepawn5.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite7.setPosition(x * size, y * size);
+									whitepawn5.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn7.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn7.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn6.pieceID && whitepawn6.moved == 1 && whitepawn6.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite7.setPosition(x * size, y * size);
+									whitepawn6.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn7.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn7.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn7.pieceID && whitepawn7.moved == 1 && whitepawn7.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite7.setPosition(x * size, y * size);
+									whitepawn7.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn7.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn7.lastmoved = totalturns;
+
+
+								}
+								if (board[y - 1][x] == whitepawn8.pieceID && whitepawn8.moved == 1 && whitepawn8.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite7.setPosition(x * size, y * size);
+									whitepawn8.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn7.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn7.lastmoved = totalturns;
+
+
+								}
+
+
+							}
 
 						}
 
@@ -7688,7 +8565,8 @@ public:
 
 
 								turn--;
-
+								totalturns++;
+								blackpawn8.lastmoved = totalturns;
 
 							}
 
@@ -7818,11 +8696,185 @@ public:
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 								std::cout << "turn" << turn << std::endl;
 								turn--;
-								std::cout << turn << std::endl;
+								totalturns++;
+								blackpawn8.lastmoved = totalturns;
 
 							}
 
+							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
+							{
 
+								if (board[y - 1][x] == whitepawn1.pieceID && whitepawn1.moved == 1 && whitepawn1.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite8.setPosition(x * size, y * size);
+									whitepawn1.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn8.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn8.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn2.pieceID && whitepawn2.moved == 1 && whitepawn2.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite8.setPosition(x * size, y * size);
+									whitepawn2.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn8.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn8.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn3.pieceID && whitepawn3.moved == 1 && whitepawn3.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite8.setPosition(x * size, y * size);
+									whitepawn3.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn8.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn8.lastmoved = totalturns;
+
+
+
+								}
+
+								if (board[y - 1][x] == whitepawn4.pieceID && whitepawn4.moved == 1 && whitepawn4.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite8.setPosition(x * size, y * size);
+									whitepawn4.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn8.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn8.lastmoved = totalturns;
+
+
+
+								}
+
+								if (board[y - 1][x] == whitepawn5.pieceID && whitepawn5.moved == 1 && whitepawn5.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite8.setPosition(x * size, y * size);
+									whitepawn5.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn8.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn8.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn6.pieceID && whitepawn6.moved == 1 && whitepawn6.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite8.setPosition(x * size, y * size);
+									whitepawn6.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn8.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn8.lastmoved = totalturns;
+
+
+
+								}
+								if (board[y - 1][x] == whitepawn7.pieceID && whitepawn7.moved == 1 && whitepawn7.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite8.setPosition(x * size, y * size);
+									whitepawn7.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn8.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn8.lastmoved = totalturns;
+
+
+								}
+								if (board[y - 1][x] == whitepawn8.pieceID && whitepawn8.moved == 1 && whitepawn8.lastmoved == totalturns && oldy == y - 1)
+								{
+
+									valid = 1;
+									blackpawnsprite8.setPosition(x * size, y * size);
+									whitepawn8.draw = 0;
+									board[y][x] = 1;
+									board[oldy][oldx] = 0;
+									moving = 0;
+									blackpawn8.moved++;
+									std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << "   " << std::endl;
+									std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
+									std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
+									std::cout << "En Passant!!!" << std::endl;
+									turn--;
+									totalturns++;
+									blackpawn8.lastmoved = totalturns;
+
+
+								}
+
+
+							}
 
 						}
 
@@ -14338,7 +15390,7 @@ public:
 						{
 
 
-							if (turn == 0 && ((board[y][x] == 0 && y >= oldy - 2 && oldx == x && board[y + 1][x] == 0 || board[y + 1][x] == whitepawn5.pieceID) || (board[oldy - 1][oldx + 1] < 0 && x == oldx + 1 && y == oldy - 1) || (board[oldy - 1][oldx - 1] < 0 && x == oldx - 1 && y == oldy - 1)))
+							if (turn == 0 && ((board[y][x] == 0 && y >= oldy - 2 && oldx == x && board[y + 1][x] == 0 || board[y + 1][x] == whitepawn6.pieceID) || (board[oldy - 1][oldx + 1] < 0 && x == oldx + 1 && y == oldy - 1) || (board[oldy - 1][oldx - 1] < 0 && x == oldx - 1 && y == oldy - 1)))
 
 							{
 								valid = 1;
