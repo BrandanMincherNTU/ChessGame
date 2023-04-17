@@ -17736,7 +17736,9 @@ public:
 			// game end
 			if (blackking.draw == 0)
 			{
-				
+				GameFile.open("GameFile.txt", std::ios_base::app);
+				GameFile << "GAME END: WHITE WINS" << std::endl;
+				GameFile.close();
 				std::cout << "White Wins!";
 				window.close();
 
@@ -17744,7 +17746,8 @@ public:
 
 			if (whiteking.draw == 0)
 			{
-
+				GameFile << "GAME END: BLACK WINS" << std::endl;
+				GameFile.close();
 				std::cout << "Black Wins!";
 				window.close();
 

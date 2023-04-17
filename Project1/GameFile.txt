@@ -1,3 +1,9 @@
-Whitepawn: x: 6  y: 2  to: x: 2  y: 4
-Whitepawn: x: 4  y: 2  to: x: 1  y: 3
-Whitepawn: x: 6  y: 0  to: x: 0  y: 4
+Whitepawn: x: 6  y: 4  to: x: 4  y: 4
+BlackPawn: x: 1  y: 4  to: x: 4  y: 3
+WhiteQueen: x: 7  y: 3  to: x: 7  y: 3
+BlackKnight: x: 0  y: 1  to: x: 2  y: 2
+WhiteBishop: x: 7  y: 5  to: x: 2  y: 4
+BlackKnight: x: 2  y: 2  to: x: 3  y: 4
+WhiteQueen: x: 3  y: 7  to: x: 5  y: 1
+BlackQueen: x: 0  y: 3  to: x: 4  y: 1
+WhiteQueen: x: 1  y: 5  to: x: 4  y: 0
