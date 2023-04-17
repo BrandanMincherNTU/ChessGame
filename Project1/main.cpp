@@ -9,7 +9,7 @@ int main()
 	
 	
 	
-	
+	// creates instance of chesswindow
 	
 	ChessGame ChessWindow;
 	ChessWindow.width = 800;
@@ -17,7 +17,7 @@ int main()
 	ChessWindow.name = "ChessBoard";
 	ChessWindow.size = 100;
 	
-	ChessGame createpieces;
+	// executes the createwindow function from ChessGame class
 
 	ChessWindow.createwindow();
 	

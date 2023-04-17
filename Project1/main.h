@@ -10,20 +10,9 @@
 #include <iostream>
 #include <fstream>
 
-/*double board[8][8] =
-{
-/	-4,-2,-3,-5,-6,-3.1,-2.1,-4.1,
-	-1,-1.1,-1.2,-1.3,-1.4,-1.5,-1.6,-1.7,
-	0 ,0 ,0 ,0 ,0, 0, 0, 0,
-	0 ,0 ,0 ,0 ,0, 0, 0, 0,
-	0 ,0 ,0 ,0 ,0, 0, 0, 0,
-	0 ,0 ,0 ,0 ,0, 0, 0, 0,
-	1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7,
-	4, 2, 3, 5, 6, 3.1, 2.1, 4.1
-
-}; */
 
 
+// board that allows movement of pieces and math logic to be used to move sprites
 double board[8][8] =
 {
 	 -4,-2,-3,-5,-6,-3.1,-2.1,-4.1,
@@ -37,7 +26,7 @@ double board[8][8] =
 
 };
 
-
+// struct to define the chesspieces 
 struct ChessPiece
 {
 	int x, y;
@@ -310,7 +299,9 @@ public:
 		whitepawn8.moved = 0;
 		whitepawn8.lastmoved = 0;
 
-		// setting textures
+		// setting textures to images from the images local file 
+
+		//black pieces textures
 
 		sf::Texture blackrooktex;
 		blackrooktex.loadFromFile("images/blackrook.png");
@@ -352,7 +343,9 @@ public:
 
 
 
-		//setting sprites 
+		//sets the sprites to the textures and scales them and places them in correct locations 
+
+		//black pieces
 
 		sf::Sprite blackrooksprite1(blackrooktex);
 		blackrooksprite1.setScale(1.5, 1.5);
@@ -484,11 +477,11 @@ public:
 		whitepawnsprite8.setScale(1.5, 1.5);
 		whitepawnsprite8.setPosition(700.f, 600.f);
 
-
+		// creates the window with width height and name from chessgame class
 
 		sf::RenderWindow window(sf::VideoMode(width, height), name);
 
-
+		//creates the squares: locations;color;size
 
 		sf::RectangleShape a1(sf::Vector2f(100, 100));
 		a1.setFillColor(sf::Color(255, 255, 255));
@@ -748,10 +741,10 @@ public:
 		h8.setPosition(700.f, 700.f);
 
 
-		float dx = 0, dy = 0;
+	
 
 
-		bool a1square = 0;
+	
 
 		double moving = 0;
 		int valid = 0;
@@ -778,6 +771,8 @@ public:
 
 
 				{
+					// Gets the user mouse position and sets it to the integers x and y
+					
 					sf::Vector2i mpos = sf::Mouse::getPosition(window);
 					int x = mpos.x / size;
 					int y = mpos.y / size;
@@ -785,12 +780,15 @@ public:
 
 
 
+					//tells the user on the console what piece they selected and where it is on the board[][]
 
 					std::cout << "ChessPiece: " << board[y][x] << "   ";
 					std::cout << "x: " << x << "   " << "y: " << y << std::endl;
 					std::cout << board[y][x] << std::endl;
 
 					// This identifies what piece is being selected by using the y and x axis of the mouse click and board[][]
+
+					//black pieces
 
 					if (board[y][x] == blackrook1.pieceID)
 					{
@@ -1160,7 +1158,10 @@ public:
 				}
 
 
-				// This Determins how the piece selected moves and its rules with exceptions for illegal moves
+				// This Determins how the piece selected moves and its rules with exceptions for illegal moves, all logic within the pieces are here
+
+
+				//black pieces
 
 				if (moving == blackrook1.pieceID && event.type == sf::Event::MouseButtonPressed)
 				{
@@ -17531,6 +17532,8 @@ public:
 
 			//draws the peices of the board and removes them if draw == 0
 
+			//black pieces
+
 			if (blackrook1.draw == 1)
 			{
 				window.draw(blackrooksprite1);
@@ -17733,7 +17736,7 @@ public:
 
 
 
-			// game end
+			// GAME END: this closes the window and records winning in console and gamefile when the king is taken
 			if (blackking.draw == 0)
 			{
 				GameFile.open("GameFile.txt", std::ios_base::app);
