@@ -71,12 +71,14 @@ public:
 		blackrook1.y = 0;
 		blackrook1.pieceID = -4;
 		blackrook1.draw = 1;
+		blackrook1.lastmoved = 0;
 
 		ChessPiece blackrook2;
 		blackrook2.x = 0;
 		blackrook2.y = 0;
 		blackrook2.pieceID = -4.1;
 		blackrook2.draw = 1;
+		blackrook2.lastmoved = 0;
 
 		ChessPiece blackqueen;
 		blackqueen.x = 0;
@@ -1308,6 +1310,7 @@ public:
 
 										turn--;
 										totalturns++;
+										blackrook1.lastmoved = totalturns;
 									}
 
 
@@ -1453,6 +1456,7 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										blackrook1.lastmoved = totalturns;
 
 									}
 
@@ -1593,6 +1597,7 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										blackrook1.lastmoved = totalturns;
 									}
 
 
@@ -1733,6 +1738,7 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										blackrook1.lastmoved = totalturns;
 									}
 
 								}
@@ -1910,6 +1916,7 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										blackrook2.lastmoved = totalturns;
 									}
 
 
@@ -2055,7 +2062,7 @@ public:
 										checker = 0;
 										turn++;
 										totalturns++;
-
+										blackrook2.lastmoved = totalturns;
 									}
 
 
@@ -2196,6 +2203,7 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										blackrook2.lastmoved = totalturns;
 									}
 
 
@@ -2336,6 +2344,7 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										blackrook2.lastmoved = totalturns;
 									}
 
 								}
@@ -2496,17 +2505,61 @@ public:
 								totalturns++;
 							}
 
-							if (valid == 0)
-							{
-								
-								std::cout << "illegal Move" << std::endl;
-							}
 
 							
 						}
 
+						if (board[y][x] == blackrook1.pieceID && blackrook1.lastmoved == 0 && board[y][x + 1] == 0 && board[y][x + 2] == 0 && board[y][x + 3] == 0)
+						{
+
+							valid = 1;
+							blackkingsprite.setPosition((oldx - 3) * size, y * size);
+							blackrooksprite1.setPosition((x + 2) * size, y * size);
+
+							std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << " and " << board[oldy][oldx] << "   " << std::endl;
+							std::cout << "Castled!!!" << std::endl;
+							board[oldy][oldx - 3] = -6;
+							board[y][x + 2] = -4;
+							board[oldy][oldx] = 0;
+							moving = 0;
 
 
+
+
+							turn++;
+							totalturns++;
+							blackrook1.lastmoved = totalturns;
+
+
+						}
+						if (board[y][x] == blackrook2.pieceID && blackrook2.lastmoved == 0 && board[y][x - 1] == 0 && board[y][x - 2] == 0)
+						{
+
+							valid = 1;
+							blackkingsprite.setPosition((oldx + 2) * size, y * size);
+							blackrooksprite2.setPosition((x - 2) * size, y * size);
+
+							std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << " and " << board[oldy][oldx] << "   " << std::endl;
+							std::cout << "Castled!!!" << std::endl;
+							board[oldy][oldx + 2] = -6;
+							board[y][x - 2] = -4.1;
+							board[oldy][oldx] = 0;
+							moving = 0;
+
+
+
+
+							turn++;
+							totalturns++;
+							blackrook2.lastmoved = totalturns;
+
+
+						}
+						if (valid == 0)
+						{
+
+							std::cout << "illegal Move" << std::endl;
+						}
 
 					}
 
