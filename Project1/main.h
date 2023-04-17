@@ -7,6 +7,8 @@
 #include <iostream>
 #include <string>
 #include <chrono>
+#include <iostream>
+#include <fstream>
 
 /*double board[8][8] =
 {
@@ -65,6 +67,17 @@ public:
 
 	void createwindow()
 	{
+
+		//Makes the Current Game CSS file so you can see the moves after the game
+
+		std::ofstream GameFile;
+		GameFile.open("GameFile.txt");
+		GameFile.close();
+
+
+
+
+		// Creates the instances of struct chesspiece, it establishes the characteristics and values of the chess pieces: eg. pieceID.
 
 		ChessPiece blackrook1;
 		blackrook1.x = 0;
@@ -1311,6 +1324,9 @@ public:
 										turn--;
 										totalturns++;
 										blackrook1.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -1457,7 +1473,9 @@ public:
 										turn--;
 										totalturns++;
 										blackrook1.lastmoved = totalturns;
-
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -1598,6 +1616,9 @@ public:
 										turn--;
 										totalturns++;
 										blackrook1.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -1739,6 +1760,9 @@ public:
 										turn--;
 										totalturns++;
 										blackrook1.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 								}
@@ -1917,6 +1941,9 @@ public:
 										turn--;
 										totalturns++;
 										blackrook2.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -2063,6 +2090,9 @@ public:
 										turn++;
 										totalturns++;
 										blackrook2.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -2204,6 +2234,9 @@ public:
 										turn--;
 										totalturns++;
 										blackrook2.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -2345,6 +2378,9 @@ public:
 										turn--;
 										totalturns++;
 										blackrook2.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 								}
@@ -2503,6 +2539,9 @@ public:
 	
 								turn--;
 								totalturns++;
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackKing: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -2529,7 +2568,9 @@ public:
 							turn++;
 							totalturns++;
 							blackrook1.lastmoved = totalturns;
-
+							GameFile.open("GameFile.txt", std::ios_base::app);
+							GameFile << "BlackKing: " << "Long Castles" << std::endl;
+							GameFile.close();
 
 						}
 						if (board[y][x] == blackrook2.pieceID && blackrook2.lastmoved == 0 && board[y][x - 1] == 0 && board[y][x - 2] == 0)
@@ -2552,7 +2593,9 @@ public:
 							turn++;
 							totalturns++;
 							blackrook2.lastmoved = totalturns;
-
+							GameFile.open("GameFile.txt", std::ios_base::app);
+							GameFile << "BlackKing: " << " Short Castles" << std::endl;
+							GameFile.close();
 
 						}
 						if (valid == 0)
@@ -2719,6 +2762,9 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -2859,6 +2905,9 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 								}
 
@@ -2997,6 +3046,9 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 								}
 
@@ -3135,6 +3187,9 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 								}
 
@@ -3323,6 +3378,9 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -3463,6 +3521,9 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 								}
 
@@ -3601,6 +3662,9 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 								}
 
@@ -3739,6 +3803,9 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 								}
 
@@ -3908,6 +3975,9 @@ public:
 
 								turn--;
 								totalturns++;
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackKnight: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (valid == 0)
@@ -4061,6 +4131,9 @@ public:
 
 								turn--;
 								totalturns++;
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackKnight: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (valid == 0)
@@ -4235,6 +4308,9 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -4379,6 +4455,9 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -4517,6 +4596,9 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -4656,6 +4738,9 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 								
@@ -4798,6 +4883,9 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -4939,6 +5027,9 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 								}
 
@@ -5078,6 +5169,9 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 								}
 
@@ -5217,6 +5311,9 @@ public:
 										checker = 0;
 										turn--;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "BlackQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 								}
@@ -5380,6 +5477,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn1.lastmoved = totalturns;
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 						}
 
@@ -5507,6 +5607,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn1.lastmoved = totalturns;
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 						
 							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
@@ -5529,7 +5632,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -5550,7 +5655,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -5571,7 +5678,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -5593,7 +5702,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -5615,7 +5726,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -5636,7 +5749,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -5657,7 +5772,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y - 1][x] == whitepawn8.pieceID && whitepawn8.moved == 1 && whitepawn8.lastmoved == totalturns && oldy == y - 1)
@@ -5677,7 +5794,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -5845,7 +5964,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn2.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -5976,6 +6097,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn2.lastmoved = totalturns;
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
@@ -5998,7 +6122,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -6019,7 +6145,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -6040,7 +6168,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -6062,7 +6192,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -6084,7 +6216,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -6105,7 +6239,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -6126,7 +6262,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y - 1][x] == whitepawn8.pieceID && whitepawn8.moved == 1 && whitepawn8.lastmoved == totalturns && oldy == y - 1)
@@ -6146,7 +6284,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -6311,7 +6451,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn2.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -6442,7 +6584,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn2.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
@@ -6465,7 +6609,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -6486,7 +6632,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -6507,7 +6655,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -6529,7 +6679,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -6552,7 +6704,9 @@ public:
 									totalturns++;
 									blackpawn3.lastmoved = totalturns;
 
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y - 1][x] == whitepawn6.pieceID && whitepawn6.moved == 1 && whitepawn6.lastmoved == totalturns && oldy == y - 1)
@@ -6572,7 +6726,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -6593,7 +6749,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y - 1][x] == whitepawn8.pieceID && whitepawn8.moved == 1 && whitepawn8.lastmoved == totalturns && oldy == y - 1)
@@ -6613,7 +6771,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -6778,7 +6938,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn4.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -6909,7 +7071,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn4.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
@@ -6932,7 +7096,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -6953,7 +7119,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -6974,7 +7142,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -6996,7 +7166,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7018,7 +7190,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7039,7 +7213,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7060,7 +7236,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y - 1][x] == whitepawn8.pieceID && whitepawn8.moved == 1 && whitepawn8.lastmoved == totalturns && oldy == y - 1)
@@ -7080,7 +7258,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -7245,7 +7425,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn5.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -7376,7 +7558,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn5.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
@@ -7399,7 +7583,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7420,7 +7606,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7441,7 +7629,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7463,7 +7653,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7485,7 +7677,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7506,7 +7700,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7527,7 +7723,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y - 1][x] == whitepawn8.pieceID && whitepawn8.moved == 1 && whitepawn8.lastmoved == totalturns && oldy == y - 1)
@@ -7547,7 +7745,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -7712,7 +7912,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn6.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -7843,7 +8045,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn6.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
@@ -7866,7 +8070,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7887,7 +8093,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7908,7 +8116,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7930,7 +8140,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7952,7 +8164,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7973,7 +8187,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -7994,7 +8210,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y - 1][x] == whitepawn8.pieceID && whitepawn8.moved == 1 && whitepawn8.lastmoved == totalturns && oldy == y - 1)
@@ -8014,7 +8232,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -8179,7 +8399,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn7.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -8310,7 +8532,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn7.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
@@ -8333,7 +8557,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -8354,7 +8580,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -8375,7 +8603,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -8397,7 +8627,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -8419,7 +8651,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -8440,7 +8674,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -8461,7 +8697,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y - 1][x] == whitepawn8.pieceID && whitepawn8.moved == 1 && whitepawn8.lastmoved == totalturns && oldy == y - 1)
@@ -8481,7 +8719,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -8646,7 +8886,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn8.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -8777,7 +9019,9 @@ public:
 								turn--;
 								totalturns++;
 								blackpawn8.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (board[y - 1][x] < 1.8 && board[y - 1][x] >= 1)
@@ -8800,7 +9044,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -8821,7 +9067,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -8842,7 +9090,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -8864,7 +9114,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -8886,7 +9138,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -8907,7 +9161,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 
 								}
@@ -8928,7 +9184,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y - 1][x] == whitepawn8.pieceID && whitepawn8.moved == 1 && whitepawn8.lastmoved == totalturns && oldy == y - 1)
@@ -8948,7 +9206,9 @@ public:
 									turn--;
 									totalturns++;
 									blackpawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "BlackPawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -9116,6 +9376,9 @@ public:
 
 								turn++;
 								totalturns++;
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "WhiteKing: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -9150,7 +9413,9 @@ public:
 							turn++;
 							totalturns++;
 							whiterook1.lastmoved = totalturns;
-
+							GameFile.open("GameFile.txt", std::ios_base::app);
+							GameFile << "WhiteKing: " << "Long Castles" << std::endl;
+							GameFile.close();
 
 						}
 						if (board[y][x] == whiterook2.pieceID && whiterook2.lastmoved == 0 && board[y][x - 1] == 0 && board[y][x - 2] == 0)
@@ -9172,8 +9437,10 @@ public:
 
 							turn++;
 							totalturns++;
-							whiterook1.lastmoved = totalturns;
-
+							whiterook2.lastmoved = totalturns;
+							GameFile.open("GameFile.txt", std::ios_base::app);
+							GameFile << "WhiteKing: " << "Short Castles" << std::endl;
+							GameFile.close();
 
 						}
 						
@@ -9351,6 +9618,9 @@ public:
 										turn++;
 										totalturns++;
 										whiterook1.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -9500,6 +9770,9 @@ public:
 										turn++;
 										totalturns++;
 										whiterook1.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -9643,6 +9916,9 @@ public:
 										turn++;
 										totalturns++;
 										whiterook1.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -9787,6 +10063,9 @@ public:
 										turn++;
 										totalturns++;
 										whiterook1.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 								}
@@ -9973,6 +10252,9 @@ public:
 										turn++;
 										totalturns++;
 										whiterook2.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -10122,6 +10404,9 @@ public:
 										turn++;
 										totalturns++;
 										whiterook2.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -10265,6 +10550,9 @@ public:
 										turn++;
 										totalturns++;
 										whiterook2.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -10409,6 +10697,9 @@ public:
 										turn++;
 										totalturns++;
 										whiterook2.lastmoved = totalturns;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteRook: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 								}
@@ -10567,6 +10858,9 @@ public:
 
 							turn++;
 							totalturns++;
+							GameFile.open("GameFile.txt", std::ios_base::app);
+							GameFile << "WhiteKnight: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+							GameFile.close();
 						}
 
 						if (valid == 0)
@@ -10722,6 +11016,9 @@ public:
 
 							turn++;
 							totalturns++;
+							GameFile.open("GameFile.txt", std::ios_base::app);
+							GameFile << "WhiteKnight: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+							GameFile.close();
 						}
 
 						if (valid == 0)
@@ -10897,6 +11194,9 @@ public:
 										checker = 0;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -11040,6 +11340,9 @@ public:
 										checker = 0;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 								}
 
@@ -11181,6 +11484,9 @@ public:
 										checker = 0;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 								}
 
@@ -11322,6 +11628,9 @@ public:
 										checker = 0;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 
 									}
 								}
@@ -11514,6 +11823,9 @@ public:
 										checker = 0;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -11657,6 +11969,9 @@ public:
 										checker = 0;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 								}
 
@@ -11798,6 +12113,9 @@ public:
 										checker = 0;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 								}
 
@@ -11939,6 +12257,9 @@ public:
 										checker = 0;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteBishop: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 
 									}
 								}
@@ -12133,6 +12454,9 @@ public:
 										checker = 0;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -12280,7 +12604,9 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										turn++;
 										totalturns++;
-
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -12422,6 +12748,9 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -12564,6 +12893,9 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -12709,6 +13041,9 @@ public:
 										checker = 0;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 
@@ -12853,6 +13188,9 @@ public:
 										checker = 0;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 								}
 
@@ -12994,6 +13332,9 @@ public:
 										checker = 0;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 								}
 
@@ -13136,6 +13477,9 @@ public:
 										checker = 0;
 										turn++;
 										totalturns++;
+										GameFile.open("GameFile.txt", std::ios_base::app);
+										GameFile << "WhiteQueen: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+										GameFile.close();
 									}
 
 								}
@@ -13306,7 +13650,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn1.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -13441,7 +13787,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn1.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (board[y + 1][x] > -1.8 && board[y + 1][x] <= -1)
@@ -13464,7 +13812,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn2.pieceID && blackpawn2.moved == 1 && blackpawn2.lastmoved == totalturns && oldy == y + 1)
@@ -13484,7 +13834,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn3.pieceID && blackpawn3.moved == 1 && blackpawn3.lastmoved == totalturns && oldy == y + 1)
@@ -13504,7 +13856,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -13525,7 +13879,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -13546,7 +13902,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn6.pieceID && blackpawn6.moved == 1 && blackpawn6.lastmoved == totalturns && oldy == y + 1)
@@ -13566,7 +13924,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn7.pieceID && blackpawn7.moved == 1 && blackpawn7.lastmoved == totalturns && oldy == y + 1)
@@ -13586,7 +13946,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn8.pieceID && blackpawn8.moved == 1 && blackpawn8.lastmoved == totalturns && oldy == y + 1)
@@ -13606,7 +13968,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn1.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -13780,6 +14144,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn2.lastmoved = totalturns;
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -13914,6 +14281,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn2.lastmoved = totalturns;
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 
 							}
 
@@ -13957,7 +14327,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn3.pieceID && blackpawn3.moved == 1 && blackpawn3.lastmoved == totalturns && oldy == y + 1)
@@ -13977,7 +14349,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -13998,7 +14372,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -14019,7 +14395,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn6.pieceID && blackpawn6.moved == 1 && blackpawn6.lastmoved == totalturns && oldy == y + 1)
@@ -14039,7 +14417,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn7.pieceID && blackpawn7.moved == 1 && blackpawn7.lastmoved == totalturns && oldy == y + 1)
@@ -14059,7 +14439,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn8.pieceID && blackpawn8.moved == 1 && blackpawn8.lastmoved == totalturns && oldy == y + 1)
@@ -14079,7 +14461,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn2.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -14253,7 +14637,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn3.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -14388,7 +14774,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn3.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (board[y + 1][x] > -1.8 && board[y + 1][x] <= -1)
@@ -14411,7 +14799,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn2.pieceID && blackpawn2.moved == 1 && blackpawn2.lastmoved == totalturns && oldy == y + 1)
@@ -14431,7 +14821,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn3.pieceID && blackpawn3.moved == 1 && blackpawn3.lastmoved == totalturns && oldy == y + 1)
@@ -14451,7 +14843,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -14472,7 +14866,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -14493,7 +14889,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn6.pieceID && blackpawn6.moved == 1 && blackpawn6.lastmoved == totalturns && oldy == y + 1)
@@ -14513,7 +14911,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn7.pieceID && blackpawn7.moved == 1 && blackpawn7.lastmoved == totalturns && oldy == y + 1)
@@ -14533,7 +14933,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn8.pieceID && blackpawn8.moved == 1 && blackpawn8.lastmoved == totalturns && oldy == y + 1)
@@ -14553,7 +14955,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn3.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -14727,7 +15131,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn4.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -14861,7 +15267,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn4.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (board[y + 1][x] > -1.8 && board[y + 1][x] <= -1)
@@ -14884,7 +15292,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn2.pieceID && blackpawn2.moved == 1 && blackpawn2.lastmoved == totalturns && oldy == y + 1)
@@ -14904,7 +15314,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn3.pieceID && blackpawn3.moved == 1 && blackpawn3.lastmoved == totalturns && oldy == y + 1)
@@ -14924,7 +15336,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -14945,7 +15359,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -14966,7 +15382,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn6.pieceID && blackpawn6.moved == 1 && blackpawn6.lastmoved == totalturns && oldy == y + 1)
@@ -14986,7 +15404,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn7.pieceID && blackpawn7.moved == 1 && blackpawn7.lastmoved == totalturns && oldy == y + 1)
@@ -15006,7 +15426,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn8.pieceID && blackpawn8.moved == 1 && blackpawn8.lastmoved == totalturns && oldy == y + 1)
@@ -15026,7 +15448,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn4.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -15200,7 +15624,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn5.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -15335,7 +15761,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn5.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (board[y + 1][x] > -1.8 && board[y + 1][x] <= -1)
@@ -15358,7 +15786,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn2.pieceID && blackpawn2.moved == 1 && blackpawn2.lastmoved == totalturns && oldy == y + 1)
@@ -15378,7 +15808,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn3.pieceID && blackpawn3.moved == 1 && blackpawn3.lastmoved == totalturns && oldy == y + 1)
@@ -15398,7 +15830,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -15419,7 +15853,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -15440,7 +15876,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn6.pieceID && blackpawn6.moved == 1 && blackpawn6.lastmoved == totalturns && oldy == y + 1)
@@ -15460,7 +15898,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn7.pieceID && blackpawn7.moved == 1 && blackpawn7.lastmoved == totalturns && oldy == y + 1)
@@ -15480,7 +15920,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn8.pieceID && blackpawn8.moved == 1 && blackpawn8.lastmoved == totalturns && oldy == y + 1)
@@ -15500,7 +15942,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn5.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -15674,7 +16118,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn6.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -15809,7 +16255,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn6.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (board[y + 1][x] > -1.8 && board[y + 1][x] <= -1)
@@ -15832,7 +16280,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn2.pieceID && blackpawn2.moved == 1 && blackpawn2.lastmoved == totalturns && oldy == y + 1)
@@ -15852,7 +16302,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn3.pieceID && blackpawn3.moved == 1 && blackpawn3.lastmoved == totalturns && oldy == y + 1)
@@ -15872,7 +16324,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -15893,7 +16347,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -15914,7 +16370,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn6.pieceID && blackpawn6.moved == 1 && blackpawn6.lastmoved == totalturns && oldy == y + 1)
@@ -15934,7 +16392,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn7.pieceID && blackpawn7.moved == 1 && blackpawn7.lastmoved == totalturns && oldy == y + 1)
@@ -15954,7 +16414,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn8.pieceID && blackpawn8.moved == 1 && blackpawn8.lastmoved == totalturns && oldy == y + 1)
@@ -15974,7 +16436,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn6.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -16142,7 +16606,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn7.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -16277,7 +16743,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn7.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (board[y + 1][x] > -1.8 && board[y + 1][x] <= -1)
@@ -16300,7 +16768,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn2.pieceID && blackpawn2.moved == 1 && blackpawn2.lastmoved == totalturns && oldy == y + 1)
@@ -16320,7 +16790,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn3.pieceID && blackpawn3.moved == 1 && blackpawn3.lastmoved == totalturns && oldy == y + 1)
@@ -16340,7 +16812,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -16361,7 +16835,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -16382,7 +16858,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn6.pieceID && blackpawn6.moved == 1 && blackpawn6.lastmoved == totalturns && oldy == y + 1)
@@ -16402,7 +16880,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn7.pieceID && blackpawn7.moved == 1 && blackpawn7.lastmoved == totalturns && oldy == y + 1)
@@ -16422,7 +16902,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn8.pieceID && blackpawn8.moved == 1 && blackpawn8.lastmoved == totalturns && oldy == y + 1)
@@ -16442,7 +16924,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn7.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -16616,7 +17100,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn8.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 
@@ -16751,7 +17237,9 @@ public:
 								turn++;
 								totalturns++;
 								whitepawn8.lastmoved = totalturns;
-
+								GameFile.open("GameFile.txt", std::ios_base::app);
+								GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+								GameFile.close();
 							}
 
 							if (board[y + 1][x] > -1.8 && board[y + 1][x] <= -1)
@@ -16774,7 +17262,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn2.pieceID && blackpawn2.moved == 1 && blackpawn2.lastmoved == totalturns && oldy == y + 1)
@@ -16794,7 +17284,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn3.pieceID && blackpawn3.moved == 1 && blackpawn3.lastmoved == totalturns && oldy == y + 1)
@@ -16814,7 +17306,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -16835,7 +17329,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
@@ -16856,7 +17352,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn6.pieceID && blackpawn6.moved == 1 && blackpawn6.lastmoved == totalturns && oldy == y + 1)
@@ -16876,7 +17374,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn7.pieceID && blackpawn7.moved == 1 && blackpawn7.lastmoved == totalturns && oldy == y + 1)
@@ -16896,7 +17396,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 								if (board[y + 1][x] == blackpawn8.pieceID && blackpawn8.moved == 1 && blackpawn8.lastmoved == totalturns && oldy == y + 1)
@@ -16916,7 +17418,9 @@ public:
 									turn++;
 									totalturns++;
 									whitepawn8.lastmoved = totalturns;
-
+									GameFile.open("GameFile.txt", std::ios_base::app);
+									GameFile << "Whitepawn: " << "x: " << oldy << "  " << "y: " << oldx << "  " << "to: " << "x: " << x << "  " << "y: " << y << std::endl;
+									GameFile.close();
 
 								}
 
