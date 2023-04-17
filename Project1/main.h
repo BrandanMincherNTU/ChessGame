@@ -5622,7 +5622,7 @@ public:
 									valid = 1;
 									blackpawnsprite1.setPosition(x * size, y * size);
 									whitepawn1.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn1.moved++;
@@ -5645,7 +5645,7 @@ public:
 									valid = 1;
 									blackpawnsprite1.setPosition(x * size, y * size);
 									whitepawn2.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn1.moved++;
@@ -5668,7 +5668,7 @@ public:
 									valid = 1;
 									blackpawnsprite1.setPosition(x * size, y * size);
 									whitepawn3.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn1.moved++;
@@ -5692,7 +5692,7 @@ public:
 									valid = 1;
 									blackpawnsprite1.setPosition(x * size, y * size);
 									whitepawn4.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn1.moved++;
@@ -5716,7 +5716,7 @@ public:
 									valid = 1;
 									blackpawnsprite1.setPosition(x * size, y * size);
 									whitepawn5.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn1.moved++;
@@ -5739,7 +5739,7 @@ public:
 									valid = 1;
 									blackpawnsprite1.setPosition(x * size, y * size);
 									whitepawn6.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn1.moved++;
@@ -5762,7 +5762,7 @@ public:
 									valid = 1;
 									blackpawnsprite1.setPosition(x * size, y * size);
 									whitepawn7.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn1.moved++;
@@ -5784,7 +5784,7 @@ public:
 									valid = 1;
 									blackpawnsprite1.setPosition(x * size, y * size);
 									whitepawn8.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn1.moved++;
@@ -6112,7 +6112,7 @@ public:
 									valid = 1;
 									blackpawnsprite2.setPosition(x * size, y * size);
 									whitepawn1.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn2.moved++;
@@ -6135,7 +6135,7 @@ public:
 									valid = 1;
 									blackpawnsprite2.setPosition(x * size, y * size);
 									whitepawn2.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn2.moved++;
@@ -6158,7 +6158,7 @@ public:
 									valid = 1;
 									blackpawnsprite2.setPosition(x * size, y * size);
 									whitepawn3.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn2.moved++;
@@ -6182,7 +6182,7 @@ public:
 									valid = 1;
 									blackpawnsprite2.setPosition(x * size, y * size);
 									whitepawn4.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn2.moved++;
@@ -6206,7 +6206,7 @@ public:
 									valid = 1;
 									blackpawnsprite2.setPosition(x * size, y * size);
 									whitepawn5.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn2.moved++;
@@ -6229,7 +6229,7 @@ public:
 									valid = 1;
 									blackpawnsprite2.setPosition(x * size, y * size);
 									whitepawn6.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn2.moved++;
@@ -6252,7 +6252,7 @@ public:
 									valid = 1;
 									blackpawnsprite2.setPosition(x * size, y * size);
 									whitepawn7.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn2.moved++;
@@ -6274,7 +6274,7 @@ public:
 									valid = 1;
 									blackpawnsprite2.setPosition(x * size, y * size);
 									whitepawn8.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.1;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn2.moved++;
@@ -6622,7 +6622,7 @@ public:
 									valid = 1;
 									blackpawnsprite3.setPosition(x * size, y * size);
 									whitepawn2.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.2;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn3.moved++;
@@ -6645,7 +6645,7 @@ public:
 									valid = 1;
 									blackpawnsprite3.setPosition(x * size, y * size);
 									whitepawn3.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.2;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn3.moved++;
@@ -6669,7 +6669,7 @@ public:
 									valid = 1;
 									blackpawnsprite3.setPosition(x * size, y * size);
 									whitepawn4.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.2;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn3.moved++;
@@ -6693,7 +6693,7 @@ public:
 									valid = 1;
 									blackpawnsprite3.setPosition(x * size, y * size);
 									whitepawn5.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.2;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn3.moved++;
@@ -6716,7 +6716,7 @@ public:
 									valid = 1;
 									blackpawnsprite3.setPosition(x * size, y * size);
 									blackpawn6.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.2;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn3.moved++;
@@ -6739,7 +6739,7 @@ public:
 									valid = 1;
 									blackpawnsprite3.setPosition(x * size, y * size);
 									whitepawn7.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.2;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn3.moved++;
@@ -6761,7 +6761,7 @@ public:
 									valid = 1;
 									blackpawnsprite3.setPosition(x * size, y * size);
 									whitepawn8.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.2;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn3.moved++;
@@ -7086,7 +7086,7 @@ public:
 									valid = 1;
 									blackpawnsprite4.setPosition(x * size, y * size);
 									whitepawn1.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.3;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn4.moved++;
@@ -7109,7 +7109,7 @@ public:
 									valid = 1;
 									blackpawnsprite4.setPosition(x * size, y * size);
 									whitepawn2.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.3;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn4.moved++;
@@ -7132,7 +7132,7 @@ public:
 									valid = 1;
 									blackpawnsprite4.setPosition(x * size, y * size);
 									whitepawn3.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.3;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn4.moved++;
@@ -7156,7 +7156,7 @@ public:
 									valid = 1;
 									blackpawnsprite4.setPosition(x * size, y * size);
 									whitepawn4.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.3;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn4.moved++;
@@ -7180,7 +7180,7 @@ public:
 									valid = 1;
 									blackpawnsprite4.setPosition(x * size, y * size);
 									whitepawn5.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.3;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn4.moved++;
@@ -7203,7 +7203,7 @@ public:
 									valid = 1;
 									blackpawnsprite4.setPosition(x * size, y * size);
 									blackpawn6.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.3;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn4.moved++;
@@ -7226,7 +7226,7 @@ public:
 									valid = 1;
 									blackpawnsprite4.setPosition(x * size, y * size);
 									whitepawn7.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.3;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn4.moved++;
@@ -7248,7 +7248,7 @@ public:
 									valid = 1;
 									blackpawnsprite4.setPosition(x * size, y * size);
 									whitepawn8.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.3;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn4.moved++;
@@ -7596,7 +7596,7 @@ public:
 									valid = 1;
 									blackpawnsprite5.setPosition(x * size, y * size);
 									whitepawn2.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.4;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn5.moved++;
@@ -7619,7 +7619,7 @@ public:
 									valid = 1;
 									blackpawnsprite5.setPosition(x * size, y * size);
 									whitepawn3.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.4;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn5.moved++;
@@ -7643,7 +7643,7 @@ public:
 									valid = 1;
 									blackpawnsprite5.setPosition(x * size, y * size);
 									whitepawn4.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.4;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn5.moved++;
@@ -7667,7 +7667,7 @@ public:
 									valid = 1;
 									blackpawnsprite5.setPosition(x * size, y * size);
 									blackpawn5.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.4;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn5.moved++;
@@ -7690,7 +7690,7 @@ public:
 									valid = 1;
 									blackpawnsprite5.setPosition(x * size, y * size);
 									whitepawn6.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.4;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn5.moved++;
@@ -7713,7 +7713,7 @@ public:
 									valid = 1;
 									blackpawnsprite5.setPosition(x * size, y * size);
 									whitepawn7.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.4;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn5.moved++;
@@ -7735,7 +7735,7 @@ public:
 									valid = 1;
 									blackpawnsprite5.setPosition(x * size, y * size);
 									whitepawn8.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.4;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn5.moved++;
@@ -8060,7 +8060,7 @@ public:
 									valid = 1;
 									blackpawnsprite6.setPosition(x * size, y * size);
 									whitepawn1.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.5;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn6.moved++;
@@ -8083,7 +8083,7 @@ public:
 									valid = 1;
 									blackpawnsprite6.setPosition(x * size, y * size);
 									whitepawn2.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.5;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn6.moved++;
@@ -8106,7 +8106,7 @@ public:
 									valid = 1;
 									blackpawnsprite6.setPosition(x * size, y * size);
 									whitepawn3.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.5;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn6.moved++;
@@ -8130,7 +8130,7 @@ public:
 									valid = 1;
 									blackpawnsprite6.setPosition(x * size, y * size);
 									whitepawn4.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.5;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn6.moved++;
@@ -8154,7 +8154,7 @@ public:
 									valid = 1;
 									blackpawnsprite6.setPosition(x * size, y * size);
 									whitepawn5.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.5;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn6.moved++;
@@ -8177,7 +8177,7 @@ public:
 									valid = 1;
 									blackpawnsprite6.setPosition(x * size, y * size);
 									whitepawn6.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.5;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn6.moved++;
@@ -8200,7 +8200,7 @@ public:
 									valid = 1;
 									blackpawnsprite6.setPosition(x * size, y * size);
 									whitepawn7.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.5;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn6.moved++;
@@ -8222,7 +8222,7 @@ public:
 									valid = 1;
 									blackpawnsprite6.setPosition(x * size, y * size);
 									whitepawn8.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.5;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn6.moved++;
@@ -8547,7 +8547,7 @@ public:
 									valid = 1;
 									blackpawnsprite7.setPosition(x * size, y * size);
 									whitepawn1.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.6;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn7.moved++;
@@ -8570,7 +8570,7 @@ public:
 									valid = 1;
 									blackpawnsprite7.setPosition(x * size, y * size);
 									whitepawn2.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.6;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn7.moved++;
@@ -8593,7 +8593,7 @@ public:
 									valid = 1;
 									blackpawnsprite7.setPosition(x * size, y * size);
 									whitepawn3.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.6;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn7.moved++;
@@ -8617,7 +8617,7 @@ public:
 									valid = 1;
 									blackpawnsprite7.setPosition(x * size, y * size);
 									whitepawn4.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.6;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn7.moved++;
@@ -8641,7 +8641,7 @@ public:
 									valid = 1;
 									blackpawnsprite7.setPosition(x * size, y * size);
 									whitepawn5.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.6;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn7.moved++;
@@ -8664,7 +8664,7 @@ public:
 									valid = 1;
 									blackpawnsprite7.setPosition(x * size, y * size);
 									whitepawn6.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.6;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn7.moved++;
@@ -8687,7 +8687,7 @@ public:
 									valid = 1;
 									blackpawnsprite7.setPosition(x * size, y * size);
 									whitepawn7.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.6;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn7.moved++;
@@ -8709,7 +8709,7 @@ public:
 									valid = 1;
 									blackpawnsprite7.setPosition(x * size, y * size);
 									whitepawn8.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.6;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn7.moved++;
@@ -9034,7 +9034,7 @@ public:
 									valid = 1;
 									blackpawnsprite8.setPosition(x * size, y * size);
 									whitepawn1.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn8.moved++;
@@ -9057,7 +9057,7 @@ public:
 									valid = 1;
 									blackpawnsprite8.setPosition(x * size, y * size);
 									whitepawn2.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn8.moved++;
@@ -9080,7 +9080,7 @@ public:
 									valid = 1;
 									blackpawnsprite8.setPosition(x * size, y * size);
 									whitepawn3.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn8.moved++;
@@ -9104,7 +9104,7 @@ public:
 									valid = 1;
 									blackpawnsprite8.setPosition(x * size, y * size);
 									whitepawn4.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn8.moved++;
@@ -9128,7 +9128,7 @@ public:
 									valid = 1;
 									blackpawnsprite8.setPosition(x * size, y * size);
 									whitepawn5.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn8.moved++;
@@ -9151,7 +9151,7 @@ public:
 									valid = 1;
 									blackpawnsprite8.setPosition(x * size, y * size);
 									whitepawn6.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn8.moved++;
@@ -9174,7 +9174,7 @@ public:
 									valid = 1;
 									blackpawnsprite8.setPosition(x * size, y * size);
 									whitepawn7.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn8.moved++;
@@ -9196,7 +9196,7 @@ public:
 									valid = 1;
 									blackpawnsprite8.setPosition(x * size, y * size);
 									whitepawn8.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = -1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									blackpawn8.moved++;
@@ -17089,7 +17089,7 @@ public:
 
 
 								whitepawnsprite8.setPosition(x * size, y * size);
-								board[y][x] = 1;
+								board[y][x] = 1.7;
 								board[oldy][oldx] = 0;
 								moving = 0;
 								whitepawn8.moved++;
@@ -17227,7 +17227,7 @@ public:
 
 								whitepawnsprite8.setPosition(x * size, y * size);
 
-								board[y][x] = 1;
+								board[y][x] = 1.7;
 								board[oldy][oldx] = 0;
 								moving = 0;
 								whitepawn8.moved++;
@@ -17252,7 +17252,7 @@ public:
 									valid = 1;
 									whitepawnsprite8.setPosition(x * size, y * size);
 									blackpawn1.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = 1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									whitepawn8.moved++;
@@ -17274,7 +17274,7 @@ public:
 									valid = 1;
 									whitepawnsprite8.setPosition(x * size, y * size);
 									blackpawn2.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = 1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									whitepawn8.moved++;
@@ -17296,7 +17296,7 @@ public:
 									valid = 1;
 									whitepawnsprite8.setPosition(x * size, y * size);
 									blackpawn3.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = 1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									whitepawn8.moved++;
@@ -17319,7 +17319,7 @@ public:
 									valid = 1;
 									whitepawnsprite8.setPosition(x * size, y * size);
 									blackpawn4.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = 1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									whitepawn8.moved++;
@@ -17342,7 +17342,7 @@ public:
 									valid = 1;
 									whitepawnsprite8.setPosition(x * size, y * size);
 									blackpawn5.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = 1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									whitepawn8.moved++;
@@ -17364,7 +17364,7 @@ public:
 									valid = 1;
 									whitepawnsprite8.setPosition(x * size, y * size);
 									blackpawn6.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = 1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									whitepawn8.moved++;
@@ -17386,7 +17386,7 @@ public:
 									valid = 1;
 									whitepawnsprite8.setPosition(x * size, y * size);
 									blackpawn7.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = 1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									whitepawn8.moved++;
@@ -17408,7 +17408,7 @@ public:
 									valid = 1;
 									whitepawnsprite8.setPosition(x * size, y * size);
 									blackpawn8.draw = 0;
-									board[y][x] = 1;
+									board[y][x] = 1.7;
 									board[oldy][oldx] = 0;
 									moving = 0;
 									whitepawn8.moved++;
