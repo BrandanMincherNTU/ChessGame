@@ -198,13 +198,14 @@ public:
 		whiterook1.y = 0;
 		whiterook1.pieceID = 4;
 		whiterook1.draw = 1;
+		whiterook1.lastmoved = 0;
 
 		ChessPiece whiterook2;
 		whiterook2.x = 0;
 		whiterook2.y = 0;
 		whiterook2.pieceID = 4.1;
 		whiterook2.draw = 1;
-
+		whiterook2.lastmoved = 0;
 
 		ChessPiece whitebishop1;
 		whitebishop1.x = 0;
@@ -8915,7 +8916,7 @@ public:
 						{
 
 
-							if (turn == 0 && (board[y][x] <= 10 && (x == oldx + 1 && y == oldy || x == oldx - 1 && y == oldy || y == oldy + 1 && x == oldx || y == oldy - 1 && x == oldx || x == oldx + 1 && y == oldy + 1 || x == oldx - 1 && y == oldy + 1 || x == oldx - 1 && y == oldy - 1 || x == oldx + 1 && y == oldy - 1)))
+							if (turn == 0 && (board[y][x] <= 0 && (x == oldx + 1 && y == oldy || x == oldx - 1 && y == oldy || y == oldy + 1 && x == oldx || y == oldy - 1 && x == oldx || x == oldx + 1 && y == oldy + 1 || x == oldx - 1 && y == oldy + 1 || x == oldx - 1 && y == oldy - 1 || x == oldx + 1 && y == oldy - 1)))
 
 							{
 								valid = 1;
@@ -9039,21 +9040,69 @@ public:
 
 							}
 
-							else 
-							{
 
-								std::cout << "illegal Move" << std::endl;
-							}
+
+
+
+
 
 
 
 						}
 
-						else
+
+
+						if (board[y][x] == whiterook1.pieceID && whiterook1.lastmoved == 0 && board[y][x + 1] == 0 && board[y][x + 2] == 0 && board[y][x + 3] == 0)
+						{
+							
+							valid = 1;
+							whitekingsprite.setPosition((oldx - 3) * size, y * size);
+							whiterooksprite1.setPosition((x + 2) * size, y * size);
+							
+							std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << " and " << board[oldy][oldx] << "   " << std::endl;
+							std::cout << "Castled!!!" << std::endl;
+							board[oldy][oldx - 3] = 6;
+							board[y][x + 2] = 4;
+							board[oldy][oldx] = 0;
+							moving = 0;
+
+
+
+
+							turn++;
+							totalturns++;
+							whiterook1.lastmoved = totalturns;
+
+
+						}
+						if (board[y][x] == whiterook2.pieceID && whiterook2.lastmoved == 0 && board[y][x - 1] == 0 && board[y][x - 2] == 0)
+						{
+
+							valid = 1;
+							whitekingsprite.setPosition((oldx + 2) * size, y * size);
+							whiterooksprite2.setPosition((x - 2) * size, y * size);
+
+							std::cout << "///MOVED//" << "ChessPiece: " << board[y][x] << " and " << board[oldy][oldx] << "   " << std::endl;
+							std::cout << "Castled!!!" << std::endl;
+							board[oldy][oldx + 2] = 6;
+							board[y][x -  2] = 4.1;
+							board[oldy][oldx] = 0;
+							moving = 0;
+
+
+
+
+							turn++;
+							totalturns++;
+							whiterook1.lastmoved = totalturns;
+
+
+						}
+						
+						if(valid==0)
 						{
 							std::cout << "illegal Move" << std::endl;
 						}
-
 
 					}
 
@@ -9222,7 +9271,8 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
-
+										totalturns++;
+										whiterook1.lastmoved = totalturns;
 									}
 
 
@@ -9370,7 +9420,8 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
-
+										totalturns++;
+										whiterook1.lastmoved = totalturns;
 									}
 
 
@@ -9512,6 +9563,8 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
+										whiterook1.lastmoved = totalturns;
 									}
 
 
@@ -9654,6 +9707,8 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
+										whiterook1.lastmoved = totalturns;
 									}
 
 								}
@@ -9838,7 +9893,8 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
-
+										totalturns++;
+										whiterook2.lastmoved = totalturns;
 									}
 
 
@@ -9986,7 +10042,8 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
-
+										totalturns++;
+										whiterook2.lastmoved = totalturns;
 									}
 
 
@@ -10128,6 +10185,8 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
+										whiterook2.lastmoved = totalturns;
 									}
 
 
@@ -10270,6 +10329,8 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
+										whiterook2.lastmoved = totalturns;
 									}
 
 								}
@@ -10427,6 +10488,7 @@ public:
 							std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 
 							turn++;
+							totalturns++;
 						}
 
 						if (valid == 0)
@@ -10581,6 +10643,7 @@ public:
 							std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 
 							turn++;
+							totalturns++;
 						}
 
 						if (valid == 0)
@@ -10755,6 +10818,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
 									}
 
 
@@ -10897,6 +10961,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
 									}
 								}
 
@@ -11037,6 +11102,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
 									}
 								}
 
@@ -11177,6 +11243,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
 
 									}
 								}
