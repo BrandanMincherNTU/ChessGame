@@ -1307,6 +1307,7 @@ public:
 										checker = 0;
 
 										turn--;
+										totalturns++;
 									}
 
 
@@ -1451,6 +1452,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 
 									}
 
@@ -1590,6 +1592,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 
 
@@ -1729,6 +1732,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 
 								}
@@ -1905,6 +1909,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 
 
@@ -2049,6 +2054,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
 
 									}
 
@@ -2189,6 +2195,7 @@ public:
 
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 
 
@@ -2328,6 +2335,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 
 								}
@@ -2485,6 +2493,7 @@ public:
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 	
 								turn--;
+								totalturns++;
 							}
 
 							if (valid == 0)
@@ -2656,6 +2665,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 
 
@@ -2795,6 +2805,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 								}
 
@@ -2932,6 +2943,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 								}
 
@@ -3069,7 +3081,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
-
+										totalturns++;
 									}
 								}
 
@@ -3257,6 +3269,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 
 
@@ -3396,6 +3409,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 								}
 
@@ -3533,6 +3547,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 								}
 
@@ -3670,6 +3685,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 								}
 
@@ -3838,6 +3854,7 @@ public:
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 
 								turn--;
+								totalturns++;
 							}
 
 							if (valid == 0)
@@ -3990,6 +4007,7 @@ public:
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 
 								turn--;
+								totalturns++;
 							}
 
 							if (valid == 0)
@@ -4163,6 +4181,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 
 
@@ -4306,7 +4325,7 @@ public:
 										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										turn--;
-
+										totalturns++;
 									}
 
 
@@ -4444,6 +4463,7 @@ public:
 										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										turn--;
+										totalturns++;
 									}
 
 
@@ -4582,6 +4602,7 @@ public:
 										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										turn--;
+										totalturns++;
 									}
 
 								
@@ -4723,6 +4744,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 
 
@@ -4863,6 +4885,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 								}
 
@@ -5001,6 +5024,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 								}
 
@@ -5139,6 +5163,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn--;
+										totalturns++;
 									}
 
 								}
@@ -9037,7 +9062,7 @@ public:
 								std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 
 								turn++;
-
+								totalturns++;
 							}
 
 
@@ -11435,6 +11460,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
 									}
 
 
@@ -11577,6 +11603,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
 									}
 								}
 
@@ -11717,6 +11744,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
 									}
 								}
 
@@ -11857,6 +11885,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
 
 									}
 								}
@@ -12050,6 +12079,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
 									}
 
 
@@ -12196,6 +12226,7 @@ public:
 										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										turn++;
+										totalturns++;
 
 									}
 
@@ -12337,6 +12368,7 @@ public:
 										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										turn++;
+										totalturns++;
 									}
 
 
@@ -12478,6 +12510,7 @@ public:
 										std::cout << "oldx: " << oldx << "   " << "oldy: " << oldy << std::endl;
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										turn++;
+										totalturns++;
 									}
 
 
@@ -12622,6 +12655,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
 									}
 
 
@@ -12765,6 +12799,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
 									}
 								}
 
@@ -12905,6 +12940,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
 									}
 								}
 
@@ -13046,6 +13082,7 @@ public:
 										std::cout << "TO: " << "x: " << x << "   " << "y: " << y << std::endl;
 										checker = 0;
 										turn++;
+										totalturns++;
 									}
 
 								}
